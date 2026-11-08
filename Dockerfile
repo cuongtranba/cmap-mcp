@@ -1,7 +1,9 @@
 # syntax=docker/dockerfile:1
 
 # Build stage: install with the committed lockfile and bundle dist/cli.js.
-FROM oven/bun:1.4.2 AS build
+# dist/cli.js is platform-independent JavaScript, so the build always runs natively
+# and only the small runtime stage is built per target platform.
+FROM --platform=$BUILDPLATFORM oven/bun:1.4.2 AS build
 WORKDIR /src
 COPY package.json bun.lock ./
 RUN bun install --frozen-lockfile
