@@ -17,7 +17,6 @@ if (withBinary) {
     target: "node",
     format: "esm",
     minify: false,
-    banner: "#!/usr/bin/env node",
   });
   if (!result.success) {
     for (const log of result.logs) console.error(log);
