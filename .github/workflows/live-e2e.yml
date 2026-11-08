@@ -1,0 +1,113 @@
+name: live-e2e
+
+# Checks that the real cmap.vn API still matches our zod schemas and the
+# shape recorded in test/contract. Daily at 07:00 Asia/Ho_Chi_Minh (00:00 UTC).
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - src/upstream/**
+      - src/snapshot/**
+      - test/live/**
+      - test/contract/**
+
+permissions:
+  contents: read
+
+concurrency:
+  group: live-e2e-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: package.json
+
+      - name: Install
+        run: bun install --frozen-lockfile
+
+      - name: Build
+        run: bun run build
+
+      - name: Live tests against cmap.vn
+        run: |
+          set -o pipefail
+          bun run test:live 2>&1 | tee live-e2e.log
+
+      - name: Upload test output
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: live-e2e-log
+          path: live-e2e.log
+          if-no-files-found: warn
+          retention-days: 30
+
+  # Only scheduled and manual runs on the default branch touch issues; PR runs
+  # just go red or green. Kept separate so the test job has no write access.
+  drift-issue:
+    needs: live
+    if: >-
+      ${{ !cancelled()
+      && (needs.live.result == 'success' || needs.live.result == 'failure')
+      && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+      && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      issues: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      LABEL: upstream-drift
+      LIVE_RESULT: ${{ needs.live.result }}
+      RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    steps:
+      - name: Download test output
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          name: live-e2e-log
+
+      - name: File or update the drift issue
+        if: env.LIVE_RESULT == 'failure'
+        run: |
+          set -euo pipefail
+          gh label create "$LABEL" --color D93F0B \
+            --description "cmap.vn changed in a way the live e2e test caught" || true
+          {
+            echo "The scheduled live e2e check against cmap.vn failed: $RUN_URL"
+            echo
+            echo "Last 150 lines of the test output:"
+            echo
+            echo '````text'
+            if [ -f live-e2e.log ]; then tail -n 150 live-e2e.log; else echo "(no test output was captured)"; fi
+            echo '````'
+          } > body.md
+          existing="$(gh issue list --label "$LABEL" --state open --json number --jq '.[0].number // empty')"
+          if [ -z "$existing" ]; then
+            gh issue create --title "cmap.vn upstream changed: live e2e failing" \
+              --label "$LABEL" --body-file body.md
+          else
+            gh issue comment "$existing" --body-file body.md
+          fi
+          echo "::error::The live e2e check failed; see the $LABEL issue."
+          exit 1
+
+      - name: Close the drift issue after a passing run
+        if: env.LIVE_RESULT == 'success'
+        run: |
+          set -euo pipefail
+          for number in $(gh issue list --label "$LABEL" --state open --json number --jq '.[].number'); do
+            gh issue close "$number" --comment "The live e2e check passes again: $RUN_URL"
+          done
