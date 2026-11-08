@@ -3,14 +3,12 @@
 ## Context
 
 cmap.vn, the culture map of Vietnam, has no official API. Its public `/fe_api/*` JSON API has two traps found during the investigation (see `PLAN.md` §1):
-
 - **Paging loses events:** paging through the event list returns about 529 of 549 events because the sort order isn't stable. Querying per province, with at most 100 events per province, returns all of them.
 - **The site's own lookups are wrong:** the map, the facet counts and slug resolution are built by the site with the same paging bug. At any moment 23–27 events are missing from them and their direct links return 404.
 
 You want Claude Code, Codex and any other coding agent to use this data. Agents with a shell will call a CLI. Agents that use MCP or tool calls will use an MCP server built on the same core.
 
 **Decisions so far:**
-
 - A single npm package `cmap-mcp`, built on one core library, with two entry points: the `cmap` CLI and `cmap mcp` (stdio, or HTTP when given `--http`).
 - **Bun only** (your instruction; this overrides the global pnpm rule for this repository). Bun handles installs, scripts, tests, bundling, compiled binaries, publishing (`bun publish`) and one-off tools (`bunx`). No pnpm, no npm CLI and no `setup-node` anywhere in the repo or CI. The published bundle still runs under Node, so people without Bun can use `npx`. CI checks this with the Node runtime that GitHub's runners already include.
 - Public repo `cuongtranba/cmap-mcp`. The name is free, and `gh` is logged in with the `repo`, `workflow` and `write:packages` scopes.
@@ -57,7 +55,6 @@ Runtime dependencies are only `@modelcontextprotocol/server@2.4.0` (which brings
 ## Behaviour
 
 **Sync**, as in PLAN.md §3:
-
 1. Fetch the taxonomies (provinces, wards, event types, event categories, position types).
 2. Fetch events for each of the 34 provinces with `page_size=100`. If a province has more than one page, page through it and record a warning.
 3. Fetch offers and places with one call each.
@@ -65,14 +62,12 @@ Runtime dependencies are only `@modelcontextprotocol/server@2.4.0` (which brings
 5. Validate with zod. If more than 10% of records fail, reject the whole sync and keep the previous snapshot.
 
 A full sync takes about 6 seconds.
-
 - **CLI:** each command loads the snapshot from disk. If it's missing or older than `--max-age` (default 60 minutes) it syncs first; `--refresh` forces a sync.
 - **MCP server:** loads the disk snapshot at start-up, syncs in the background every `CMAP_REFRESH_MIN` minutes (default 10), and keeps the last good snapshot when a sync fails.
 
 **Never** use `/fe_api/*/resolve`, `/event/map` or `/event/facets`, because they're affected by the site's paging bug. Slugs are resolved from the snapshot, and details are fetched with `/fe_api/{event|offer|position}/{id}?language=`, cached for 10 minutes.
 
 **CLI** (JSON on stdout by default; `--text` gives a readable table; exit code 1 with a JSON error on stderr):
-
 ```
 cmap sync | cmap status
 cmap events search [query] --province --type --category --from --to --free|--paid --highlight --limit --offset --lang
@@ -86,7 +81,6 @@ cmap mcp [--http 0.0.0.0:8787]
 **MCP tools.** Each tool maps one-to-one to a library function, using zod `inputSchema` and `outputSchema` and returning `structuredContent`: `search_events`, `get_event`, `events_near`, `list_provinces`, `get_province`, `list_taxonomies`, `search_offers`, `get_offer`, `list_places` and `get_sync_status`.
 
 **Skill** (`skills/cmap/SKILL.md`): the frontmatter is `name: cmap` and a `description` that says when to use it (cultural events, festivals, exhibitions and deals in Vietnam, cmap.vn, and the 24/11 Vietnam Culture Day). The body covers:
-
 - how to run it: `npx -y cmap-mcp …` or `bunx cmap-mcp …`;
 - the commands, with examples and the output fields;
 - that results are a cached copy and should name cmap.vn as the source;
@@ -95,7 +89,6 @@ cmap mcp [--http 0.0.0.0:8787]
 ## Tests (behaviour only, public seams, no mocks)
 
 The offline tests run with `bun test` against the deterministic `fake-cmap` server. It serves fixtures and reproduces both upstream bugs: list pages that overlap, and a `resolve` endpoint that returns 404 for some slugs.
-
 1. A sync whose list pages overlap still returns every event exactly once. This is the regression test for the paging bug.
 2. `events search "ha noi mua roi"` finds the event with accents, and the province, type and date filters narrow the results.
 3. A sync that fails partway through keeps the previous snapshot, and `status` reports the error.
@@ -105,7 +98,6 @@ The offline tests run with `bun test` against the deterministic `fake-cmap` serv
 7. MCP: an MCP `Client` connected over stdio to `bun src/cli.ts mcp` sees the 10 tools, and `search_events` returns `structuredContent`.
 
 The **live e2e test** (`bun run test:live`, against the real cmap.vn) is what tells us the upstream site has changed:
-
 - every endpoint parses with the zod schemas;
 - the key shape matches `test/contract/shape.json` (a missing or retyped key fails the test; a new key only produces a warning);
 - 34 provinces are returned, at least 300 events in total, and no province has more than 100 events (the per-province assumption still holds);
