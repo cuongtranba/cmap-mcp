@@ -1,6 +1,6 @@
-# Plan: an MCP server for cmap.vn
+# Design: a CLI and MCP server for cmap.vn
 
-Status: draft for review. Investigation done 2026-11-08 against the live site.
+Status: implemented; sections 4 and 5 were updated after the decision to build one core library with a CLI and an MCP entry point on the Bun toolchain (the original draft described an MCP-only TypeScript/pnpm server). Investigation done 2026-11-08 against the live site.
 
 ## 1. What cmap.vn is
 
@@ -86,7 +86,16 @@ flowchart LR
 5. Validate with zod. An unknown extra field is allowed. A missing `id`, `translations` or `province` rejects that record and is logged. If more than 10% of records are rejected, the whole snapshot is rejected.
 6. Swap the snapshot in and write `snapshot.json`, so the next start loads in 0 seconds.
 
-## 4. MCP tools (v1)
+## 4. Tools: one library, two entry points
+
+All behaviour lives in one core library (`src/index.ts`, `createCmap()`): sync, snapshot, search, formatting. Two thin adapters call it and add no logic of their own:
+
+- **MCP server** (`cmap mcp`, stdio, or Streamable HTTP with `--http host:port`): the tools below, one per library method.
+- **CLI** (`cmap <command>`): the same operations as commands (`events search`, `event get`, `events near`, `offers search`, `offer get`, `provinces`, `province get`, `places`, `taxonomies`, `sync`, `status`), JSON on stdout. Agents that have a shell use it, usually through the skill in `skills/cmap`.
+
+The CLI loads the snapshot from disk and re-syncs when it is older than `--max-age` (60 minutes). The MCP server serves its snapshot and refreshes it in the background every `CMAP_REFRESH_MIN` minutes.
+
+### MCP tools
 
 Every tool takes `language: "vi" | "en"` (default `vi`) and returns `structuredContent` that matches an `outputSchema`, plus a short text summary. Records are compact by default: HTML is converted to plain text and cut to about 300 characters, IDs are resolved to names, and each record includes a `url` to the cmap.vn page.
 
@@ -109,27 +118,28 @@ Optional MCP resources: `cmap://provinces` and `cmap://taxonomies` (static JSON)
 
 ## 5. Technology
 
-- TypeScript on Node 22+, using **pnpm**.
-- `@modelcontextprotocol/server` (SDK v2.4). `StdioServerTransport` comes from `@modelcontextprotocol/server/stdio`. `WebStandardStreamableHTTPServerTransport` with `@modelcontextprotocol/hono` serves the optional HTTP endpoint. `registerTool` takes zod `inputSchema` and `outputSchema`.
-- `zod` for the API contracts and tool schemas, and `p-limit` for concurrency.
-- The plain built-in `fetch`, with no HTTP library.
-- An `lru-cache` for details.
-- No database in v1. If the dataset grows past about 50k records, swap the snapshot for SQLite with FTS5 behind the same `Snapshot` interface.
+- TypeScript in strict mode, built and run with **Bun** (`bun install`, `bun run`, `bun test`, `bun build`, `bun publish`, `bunx`). No pnpm, npm or yarn in scripts or CI. The published bundle is a single `dist/cli.js` that also runs on Node 22+, so `npx -y cmap-mcp` works for people without Bun. For that reason `src/` uses only Web and `node:` APIs, never `Bun.*`; `Bun.*` is allowed in `test/` and `scripts/`.
+- `@modelcontextprotocol/server` (SDK v2.4): `McpServer.registerTool` with zod `inputSchema` and `outputSchema`, `StdioServerTransport` from `@modelcontextprotocol/server/stdio`, and `WebStandardStreamableHTTPServerTransport` behind a small `node:http` adapter for the HTTP mode (stateless: one server and transport per request).
+- `zod` for the upstream contract (`src/upstream/schemas.ts`) and the tool schemas, `p-limit` for concurrency, the built-in `fetch`, and `node:util` `parseArgs` for the CLI (no CLI framework).
+- Biome for lint and format, `tsc --noEmit` for types.
+- No database. If the dataset grows past about 50k records, swap the snapshot for SQLite with FTS5 behind the same `Snapshot` interface.
 
 Layout:
 ```
 src/
-  index.ts             # entry: choose transport from argv/env
-  server.ts            # builds McpServer, registers tools
-  cmap/client.ts       # fetch + retry + concurrency + zod parse
-  cmap/schemas.ts      # zod schemas for /fe_api responses (one place)
-  cmap/sync.ts         # snapshot builder (algorithm in §3)
-  snapshot/store.ts    # snapshot owner, atomic swap, disk persistence
-  snapshot/search.ts   # VN-diacritic normalization, filters, geo
-  tools/*.ts           # one file per tool group (events, offers, provinces)
+  index.ts             # library API: createCmap() and types
+  cli.ts               # `cmap` entry: parseArgs, JSON/text output   (cli/help.ts, cli/text.ts)
+  mcp/server.ts        # McpServer, ten tools, stdio + HTTP          (mcp/schemas.ts)
+  config.ts errors.ts version.ts
+  upstream/            # schemas.ts (the contract), client.ts (retry, concurrency), detail-cache.ts
+  snapshot/            # sync.ts (per-province crawl), store.ts (memory + disk), snapshot.ts
+  query/               # normalize.ts, search.ts, format.ts
+skills/cmap/SKILL.md   # agent skill
 test/
-  fixtures/            # recorded /fe_api responses (trimmed)
-  server.test.ts       # tests through the MCP client against the server
+  fake-cmap.ts         # deterministic fake upstream reproducing both upstream bugs
+  library.test.ts cli.test.ts mcp.test.ts
+  live/                # daily check against the real cmap.vn (bun run test:live)
+  contract/shape.json  # recorded key shape of each endpoint (bun run contract:record)
 ```
 
 ## 6. Implementation phases

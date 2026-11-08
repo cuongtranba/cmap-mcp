@@ -66,7 +66,8 @@ ENVIRONMENT
   CMAP_CONCURRENCY    Parallel upstream requests (default 4)
   CMAP_REFRESH_MIN    MCP server background refresh interval in minutes (default 10)
 
-Negative coordinates: put "--" before them, e.g. cmap events near -- -33.8 151.2
+Negative coordinates: give the flags first, then "--", then the numbers:
+  cmap events near --limit 5 -- -33.8 151.2
 `;
 
 const DATA_FLAGS = `
@@ -105,7 +106,7 @@ EXAMPLES
   "events near": `cmap events near <lat> <lng> [--radius-km <km>] [--limit <n>] [flags]
 
 Events with a location near a coordinate, nearest first. Each item has a "distanceKm" field.
-Without --radius-km there is no distance limit. Use "--" before negative numbers.
+Without --radius-km there is no distance limit. For negative numbers put the flags first, then "--": cmap events near --limit 5 -- -33.8 151.2
 
 FLAGS
   --radius-km <km>     Only events within this many kilometres
