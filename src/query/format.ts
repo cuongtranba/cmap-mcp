@@ -7,7 +7,7 @@ import type {
   UpstreamProvince,
   UpstreamTaxonomy,
 } from "../upstream/schemas.ts";
-import { isPoint, refId, textOf, typeIds } from "./search.ts";
+import { categoryIds, isPoint, refId, textOf, typeIds } from "./search.ts";
 
 export type Language = "vi" | "en";
 
@@ -242,7 +242,7 @@ export function formatEvent(
     endDate: event.end_time ?? null,
     province: provinceRef(snapshot, event.province, lang),
     type: refFrom(snapshot.eventTypes, typeIds(event.type)[0], lang),
-    categories: (event.category ?? [])
+    categories: categoryIds(event.category)
       .map((id) => refFrom(snapshot.eventCategories, id, lang))
       .filter((c): c is NamedRef => c !== null),
     address: plainOrNull(pick(lang, vi.address, en?.address)),

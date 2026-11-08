@@ -70,9 +70,16 @@ export function refId(ref: string | { id: string }): string {
   return typeof ref === "string" ? ref : ref.id;
 }
 
-export function typeIds(type: string | string[] | null | undefined): string[] {
+type Ref = string | { id: string };
+
+/** Ids of a `type` field that holds one reference or a list of them (ids or nested objects). */
+export function typeIds(type: Ref | Ref[] | null | undefined): string[] {
   if (type === null || type === undefined) return [];
-  return typeof type === "string" ? [type] : type;
+  return (Array.isArray(type) ? type : [type]).map(refId);
+}
+
+export function categoryIds(category: readonly Ref[] | null | undefined): string[] {
+  return (category ?? []).map(refId);
 }
 
 /** Text of an upstream field that is a string, a list of strings, or absent. */
@@ -272,7 +279,7 @@ export function filterEvents(snapshot: Snapshot, filters: EventFilters): Upstrea
       (e) =>
         (provinces === undefined || provinces.has(refId(e.province))) &&
         (types === undefined || typeIds(e.type).some((t) => types.has(t))) &&
-        (categories === undefined || (e.category ?? []).some((c) => categories.has(c))) &&
+        (categories === undefined || categoryIds(e.category).some((c) => categories.has(c))) &&
         overlaps(e, from, to) &&
         (filters.free === undefined || (e.charge !== true) === filters.free) &&
         (filters.highlight === undefined ||

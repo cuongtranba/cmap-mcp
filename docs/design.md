@@ -166,3 +166,14 @@ Verification gate: `pnpm lint && pnpm typecheck && pnpm test && pnpm build`, the
 | The 549-versus-525 gap (resolved: a paging bug in the site, see §1) | Keep all events from the per-province crawl. Resolve slugs locally, and never call `/fe_api/*/resolve`, `map` or `facets` for correctness. |
 | Terms of use and attribution | `robots.txt` allows everything. Still, use low concurrency, cache the data, put the source URL on every record, and **check the site's terms or ask the operator before any commercial or public redistribution**. |
 | `remove=false` and the ticket fields | The site passes `remove=false` when it wants ticketed events. Confirm what it changes during phase 2. |
+
+## 9. Implementation notes (verified 2026-11-08)
+
+Decisions made while building the core library, each checked against the live site.
+
+- **Wards are not synced.** `/fe_api/province/ward` has 3 309 records and caps `page_size` at 100, so it costs 34 requests for names we do not need. Ward ids are not resolved; summaries carry no ward name. (The event detail response embeds the ward object if it is ever needed.)
+- **`charge: true` means paid.** Checked against the data: the events with `charge: true` carry a `ticket` text (for example "Bán vé tại Nhà hát Múa rối Việt Nam"). `free` filters on `charge !== true`.
+- **No offer detail endpoint.** `/fe_api/offer/{id}` returns 404. The offer list record already carries the full `content` and `ticket`, so `getOffer` returns the snapshot record. Offers of kind `event` share their id and slug with the event.
+- **Canonical page URLs.** Events: `/su-kien/{slug}`; community activities (event type slug `sinh-hoat-cong-dong-…`): `/sinh-hoat-cong-dong/{slug}`. The other path answers 301. Offers of kind `position` and places: `/uu-dai/{slug}`. Provinces: `/cac-diem-den/{provinceId}`; the slug form 404s.
+- **Shape quirks the schemas accept.** In event detail responses `province`, `ward` and each `category` are nested objects rather than ids; `more_location_list[].ward` can be an object; position `type` is an array of ids; 14 of 549 events have no `en` translation; one event has a corrupt latitude (210107), so geo search ignores coordinates outside [-90, 90] / [-180, 180].
+- **Rate limiting exists.** Rapid sequential detail requests eventually get HTTP 429. The client retries with exponential backoff (400 ms doubling, 3 retries, honouring `Retry-After`), and `getEvent` falls back to the snapshot record (`source: "snapshot"`) if the live detail stays unavailable.

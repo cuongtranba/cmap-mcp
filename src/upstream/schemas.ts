@@ -7,13 +7,9 @@ import { z } from "zod";
 
 const id = z.string().min(1);
 const nullableString = z.string().nullish();
-const idList = z.array(id);
 
 /** Coordinates arrive as numbers or null; out-of-range values are filtered at query time. */
 const coordinate = z.number().nullish();
-
-/** `type` is a single id on events and offers but an array on positions. */
-const typeRef = z.union([id, idList]);
 
 const nameDes = z.looseObject({
   name: z.string(),
@@ -53,6 +49,9 @@ export const eventTranslationsSchema = z.looseObject({
 /** Provinces and wards appear as an id in lists and as a nested object in some responses. */
 const entityRef = z.union([id, z.looseObject({ id })]);
 
+/** `type` is one reference on events and offers but a list on positions. */
+const typeRef = z.union([entityRef, z.array(entityRef)]);
+
 export const moreLocationSchema = z.looseObject({
   translations: z
     .looseObject({ vi: z.looseObject({ address: nullableString }).nullish() })
@@ -81,7 +80,7 @@ const eventBase = {
   ward: entityRef.nullish(),
   more_location_list: z.array(moreLocationSchema).nullish(),
   type: typeRef.nullish(),
-  category: idList.nullish(),
+  category: z.array(entityRef).nullish(),
   service: z.array(z.unknown()).nullish(),
   like: z.number().nullish(),
   view: z.number().nullish(),
