@@ -1,0 +1,112 @@
+{
+  "translations": {
+    "vi": {
+      "name": "Âm vang đồng quê",
+      "name_en": "Echoes of countryside",
+      "des": "Đây là vở diễn mang đậm hồn quê Việt – bản giao hưởng rực rỡ giữa rối cạn, rối nước và âm nhạc dân gian.",
+      "content": "<p>Thông qua những tiết mục rối cạn và rối nước đặc sắc, vở diễn sẽ mang đến không khí vui tươi của những lễ hội làng truyền thống, những trò chơi dân gian vui nhộn. Đời sống tâm linh, sinh hoạt thường ngày của những người nông dân cũng sẽ được tái hiện một cách sinh động khi kết hợp múa rối với nhiều ngôn ngữ nghệ thuật khác nhau như âm nhạc, múa dân gian…</p><p> Đến với “Âm vang đồng quê”, khán giả không chỉ có những giây phút thư giãn ý nghĩa mà còn có thêm nhiều trải nghiệm với những nét văn hoá truyền thống và tinh hoa nhất của Việt Nam.</p><div>- Thời gian: 01/02 - 31/12/2026</div><div>- Địa điểm: Nhà hát Múa rối Việt Nam, số 361 Trường Chinh, phường Khương Đình, Hà Nội</div>",
+      "content_en": "<p>Through a series of captivating land and water puppetry performances, “Echoes of the Countryside” brings to life the joyful atmosphere of traditional village festivals and lively folk games. The spiritual beliefs and everyday lives of Vietnamese farmers are vividly portrayed through the art of puppetry, harmoniously combined with other art forms such as music and traditional folk dance.</p><div><br></div>",
+      "address": "Nhà hát Múa rối Việt Nam, số 361 Trường Chinh, phường Khương Đình, Hà Nội",
+      "ticket": "Bán vé tại Nhà hát Múa rối Việt Nam:  Giảm 10% cho đoàn 10 khách trở lên và tặng con rối trị giá 100k cho khách mua vé VIP",
+      "organization_level": "central",
+      "organizer": "Nhà hát Múa rối Việt Nam",
+      "transport": "",
+      "contact": "Mr. Đức Anh 0919228686",
+      "basis": null,
+      "audience": "Người dân và khách du lịch",
+      "audio": null,
+      "tags": null
+    },
+    "en": {
+      "name": "The country's sound",
+      "des": "It is a vibrant Vietnamese drama, a brilliant symphony between clutter, water and folk music.",
+      "content": "<p>Through its distinctive clutter and water-clutter, the show will bring the fresh air of traditional village festivals, fun folk games. The spiritual life, the daily life of the peasants will also be vividly reproduced by combining puppet dance with various artistic languages such as music, folk dance...</p><p> When it comes to country music, the audience not only has meaningful moments of relaxation but also more experiences with Vietnam&#39;s most traditional and exquisite cultural aspects.</p><div>- Time: February 1 through December 31, 2026.</div><div>- Location: The Vietnamese Puppet Theatre, number 361 Chinh School, Khongqing Avenue, Hanoi</div>",
+      "address": "The Vietnamese Doll Theatre, number 361 Chinh School, Khương Đình Square, Hanoi"
+    }
+  },
+  "thumbnail": "https://cmap.vn/media/app_event/Event/2026/10/19/4-5E9Gk6.webp",
+  "image": "https://cmap.vn/media/app_event/Event/2026/10/19/4-B1AlB8.jpg",
+  "start_time": "2026-02-01",
+  "end_time": "2026-12-31",
+  "link": "https://www.facebook.com/VietnamPuppetry",
+  "lat": 21.001924078706278,
+  "lng": 105.82158256465016,
+  "charge": true,
+  "allow_comment": true,
+  "highlight": false,
+  "highlight_community": false,
+  "category": [
+    {
+      "id": "00f67aef-1809-43b8-a09f-20d2412257b8",
+      "translations": {
+        "vi": {
+          "name": "Sự kiện nổi bật",
+          "des": ""
+        }
+      },
+      "thumbnail": null,
+      "image": null,
+      "code": "sknb"
+    }
+  ],
+  "type": "9a29babf-2ad9-4fba-9992-021bd9aae7d0",
+  "service": [
+    "d3eb19fc-9e1e-46d3-9417-e739ee6e6b37"
+  ],
+  "province": {
+    "translations": {
+      "vi": {
+        "name": "Hà Nội",
+        "des": "Nơi những giá trị nghìn năm tuổi hòa cùng nhịp sống hiện đại. Từ những lễ hội truyền thống, không gian văn hóa phố cổ đến các chương trình nghệ thuật, triển lãm và sự kiện đương đại, Thủ đô luôn có những điểm hẹn văn hóa hấp dẫn chờ bạn khám phá.",
+        "content": "<div>Hà Nội sôi động với nhiều sự kiện văn hóa, lễ hội và hoạt động nghệ thuật diễn ra quanh năm. Thành phố thường xuyên tổ chức các chương trình quy mô lớn như Lễ hội Áo dài, Lễ hội Thiết kế sáng tạo, các hoạt động quảng bá di sản và chương trình nghệ thuật tại khu vực phố cổ, hồ Hoàn Kiếm.</div><div><br></div><div>Không gian di sản kết hợp nghệ thuật truyền thống và các hoạt động sáng tạo mang đến nhiều trải nghiệm đa dạng. Mỗi mùa, Hà Nội lại có những sự kiện riêng, tạo thêm sức hút cho hành trình khám phá Thủ đô.</div>",
+        "organ": null,
+        "tags": null
+      }
+    },
+    "thumbnail": "https://cmap.vn/media/app_category/Province/2026/09/10/4-65405306075629612529605-2L29yr.webp",
+    "image": "https://cmap.vn/media/app_category/Province/2026/09/10/4-65405306075629612529605-ORrLKL.jpg",
+    "code": "VN-HN",
+    "lat": null,
+    "lng": null,
+    "data": null,
+    "phone": null,
+    "email": null,
+    "link": null,
+    "country": "61c21057-ba9c-4c86-8387-48202e9b2db8",
+    "id": "84090a9f-b434-47de-b614-1766f3b5ff34",
+    "order": 1,
+    "slug": "ha-noi-5HQ5Xh"
+  },
+  "ward": {
+    "translations": {
+      "vi": {
+        "name": "Khương Đình",
+        "des": null,
+        "content": null,
+        "organ": null,
+        "tags": null
+      }
+    },
+    "thumbnail": null,
+    "image": null,
+    "code": "HN-khuong-dinh",
+    "lat": null,
+    "lng": null,
+    "data": null,
+    "phone": null,
+    "email": null,
+    "link": null,
+    "province": "84090a9f-b434-47de-b614-1766f3b5ff34",
+    "id": "98106894-c8af-44c5-91a3-336c08da3f3b",
+    "order": 2883,
+    "slug": "khuong-dinh-J4XPf4"
+  },
+  "image_list": [],
+  "checkin": null,
+  "more_location_list": [],
+  "id": "1c1939af-7183-4146-92c2-311727eacc6d",
+  "order": 4,
+  "slug": "am-vang-dong-que-9TXHDc",
+  "like": 50,
+  "view": 107
+}

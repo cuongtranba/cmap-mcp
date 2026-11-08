@@ -1,0 +1,90 @@
+[
+  {
+    "id": "9a29babf-2ad9-4fba-9992-021bd9aae7d0",
+    "translations": {
+      "vi": {
+        "name": "Văn hóa, nghệ thuật",
+        "des": ""
+      },
+      "en": {
+        "name": "Culture and Arts",
+        "des": ""
+      }
+    },
+    "thumbnail": null,
+    "image": null,
+    "code": null,
+    "order": 1,
+    "slug": "van-hoa-nghe-thuat-kByaIJ",
+    "created_at": "2026-10-09T15:29:29.520374+07:00",
+    "created_by": "8388be11-07f3-4426-aef3-5c7ea1ccd259",
+    "updated_at": "2026-10-20T08:47:19.049663+07:00",
+    "updated_by": "8eaa1895-a1c4-4552-bc09-435ef74651b5"
+  },
+  {
+    "id": "9488d327-778f-44b6-b2e7-d09d296949ae",
+    "translations": {
+      "vi": {
+        "name": "Thể dục, thể thao",
+        "des": ""
+      },
+      "en": {
+        "name": "Physical Education and Sports",
+        "des": ""
+      }
+    },
+    "thumbnail": null,
+    "image": null,
+    "code": null,
+    "order": 2,
+    "slug": "the-duc-the-thao-3g43Vt",
+    "created_at": "2026-09-15T17:03:04.224003+07:00",
+    "created_by": "1507c466-6d5a-4b3e-acba-d39bba38b1c9",
+    "updated_at": "2026-10-11T23:31:42.378235+07:00",
+    "updated_by": "8388be11-07f3-4426-aef3-5c7ea1ccd259"
+  },
+  {
+    "id": "45739d33-1505-4448-93d9-a2a88907f3f8",
+    "translations": {
+      "vi": {
+        "name": "Trưng bày, triển lãm",
+        "des": ""
+      },
+      "en": {
+        "name": "Exhibitions and Displays",
+        "des": ""
+      }
+    },
+    "thumbnail": null,
+    "image": null,
+    "code": null,
+    "order": 3,
+    "slug": "trung-bay-trien-lam-0V2i67",
+    "created_at": "2026-09-15T17:03:15.331843+07:00",
+    "created_by": "1507c466-6d5a-4b3e-acba-d39bba38b1c9",
+    "updated_at": "2026-10-11T23:31:51.432159+07:00",
+    "updated_by": "8388be11-07f3-4426-aef3-5c7ea1ccd259"
+  },
+  {
+    "id": "24254f39-99bc-4160-b72f-f4e384bdee92",
+    "translations": {
+      "vi": {
+        "name": "Sinh hoạt cộng đồng",
+        "des": ""
+      },
+      "en": {
+        "name": "Community Activities",
+        "des": ""
+      }
+    },
+    "thumbnail": null,
+    "image": null,
+    "code": null,
+    "order": 4,
+    "slug": "sinh-hoat-cong-dong-WM27V0",
+    "created_at": "2026-10-09T15:29:51.257616+07:00",
+    "created_by": "8388be11-07f3-4426-aef3-5c7ea1ccd259",
+    "updated_at": "2026-10-11T23:32:07.097714+07:00",
+    "updated_by": "8388be11-07f3-4426-aef3-5c7ea1ccd259"
+  }
+]

@@ -1,0 +1,498 @@
+[
+  {
+    "id": "d7cde370-eca9-44c9-bd5d-3ed86820fdf7",
+    "slug": "hoat-dong-giao-duc-trai-nghiem-duoi-hinh-thuc-tro-choi-truc-tuyen-n3eDjK",
+    "province": "84090a9f-b434-47de-b614-1766f3b5ff34",
+    "type": "24254f39-99bc-4160-b72f-f4e384bdee92",
+    "charge": true,
+    "start_time": "2026-11-17",
+    "lat": 21.030994677919356,
+    "more_location_list": [],
+    "translations": {
+      "vi": {
+        "name": "Hoạt động giáo dục  trải nghiệm dưới hình thức trò chơi trực tuyến",
+        "name_en": "Interactive Educational Activities through Online Games",
+        "des": "Xây dựng hành trình trải nghiệm kết nối môi trường trực tuyến với không gian thực tế của Bảo tàng Mỹ thuật Việt Nam.",
+        "content_en": "",
+        "address": "Bảo tàng Mỹ thuật Việt Nam, 66 Nguyễn Thái Học, Ba Đình, Hà Nội",
+        "organization_level": "central",
+        "organizer": null,
+        "transport": "",
+        "contact": null,
+        "basis": null,
+        "audience": null,
+        "audio": null,
+        "tags": null
+      },
+      "en": {
+        "name": "Experience education activities in the form of online games",
+        "des": "Build an online environment-connected experience journey with the real-life space of the Vietnamese Museum of Fine Arts.",
+        "address": "Museum of Vietnamese Art, 66 Nguyen Thai, Ba Ding, Hanoi"
+      }
+    },
+    "thumbnail": "https://cmap.vn/media/app_event/Event/2026/10/31/logo-baotangmythuatvn-b5xJUg.webp",
+    "image": "https://cmap.vn/media/app_event/Event/2026/10/11/1791715002435_5271329395392374309_5271329395392374309_74b48e37304e6030ac9ad6cda8f4c72e-hk6p15.jpg",
+    "end_time": "2027-06-24",
+    "link": null,
+    "lng": 105.8371698272217,
+    "highlight": false,
+    "highlight_community": true,
+    "category": [],
+    "service": [],
+    "ward": null,
+    "order": 2,
+    "like": 24,
+    "view": 68
+  },
+  {
+    "id": "1c1939af-7183-4146-92c2-311727eacc6d",
+    "slug": "am-vang-dong-que-9TXHDc",
+    "province": "84090a9f-b434-47de-b614-1766f3b5ff34",
+    "type": "9a29babf-2ad9-4fba-9992-021bd9aae7d0",
+    "charge": true,
+    "start_time": "2026-02-01",
+    "lat": 21.001924078706278,
+    "more_location_list": [],
+    "translations": {
+      "vi": {
+        "name": "Âm vang đồng quê",
+        "name_en": "Echoes of countryside",
+        "des": "Đây là vở diễn mang đậm hồn quê Việt – bản giao hưởng rực rỡ giữa rối cạn, rối nước và âm nhạc dân gian.",
+        "content_en": "<p>Through a series of captivating land and water puppetry performances, “Echoes of the Countryside” brings to life the joyful atmosphere of traditional village festivals and lively folk games. The spiritual beliefs and everyday lives of Vietnamese farmers are vividly portrayed through the art of puppetry, harmoniously combined with other art forms such as music and traditional folk dance.</p><div><br></div>",
+        "address": "Nhà hát Múa rối Việt Nam, số 361 Trường Chinh, phường Khương Đình, Hà Nội",
+        "organization_level": "central",
+        "organizer": "Nhà hát Múa rối Việt Nam",
+        "transport": "",
+        "contact": "Mr. Đức Anh 0919228686",
+        "basis": null,
+        "audience": "Người dân và khách du lịch",
+        "audio": null,
+        "tags": null
+      },
+      "en": {
+        "name": "The country's sound",
+        "des": "It is a vibrant Vietnamese drama, a brilliant symphony between clutter, water and folk music.",
+        "address": "The Vietnamese Doll Theatre, number 361 Chinh School, Khương Đình Square, Hanoi"
+      }
+    },
+    "thumbnail": "https://cmap.vn/media/app_event/Event/2026/10/19/4-5E9Gk6.webp",
+    "image": "https://cmap.vn/media/app_event/Event/2026/10/19/4-B1AlB8.jpg",
+    "end_time": "2026-12-31",
+    "link": "https://www.facebook.com/VietnamPuppetry",
+    "lng": 105.82158256465016,
+    "highlight": false,
+    "highlight_community": false,
+    "category": [
+      "00f67aef-1809-43b8-a09f-20d2412257b8"
+    ],
+    "service": [
+      "d3eb19fc-9e1e-46d3-9417-e739ee6e6b37"
+    ],
+    "ward": "98106894-c8af-44c5-91a3-336c08da3f3b",
+    "order": 4,
+    "like": 50,
+    "view": 107
+  },
+  {
+    "id": "bb149347-0443-4840-bc33-6693d4d84a88",
+    "slug": "trien-lam-tranh-co-dong-trien-lam-nghe-thuat-tuan-van-hoa-dai-doan-ket-LOcM4Z",
+    "province": "57704333-faaf-4e4f-87c7-efbc2d340b46",
+    "type": "45739d33-1505-4448-93d9-a2a88907f3f8",
+    "charge": false,
+    "start_time": "2026-11-18",
+    "lat": 10.777737663880702,
+    "more_location_list": [
+      {
+        "translations": {
+          "vi": {
+            "address": "Công viên đường Nguyễn Du, phường Thủ Dầu Một"
+          }
+        },
+        "ward": {
+          "translations": {
+            "vi": {
+              "name": "Thủ Dầu Một",
+              "des": null,
+              "content": null,
+              "organ": null,
+              "tags": null
+            }
+          },
+          "thumbnail": null,
+          "image": null,
+          "code": "HCM-thu-dau-mot",
+          "lat": null,
+          "lng": null,
+          "data": null,
+          "phone": null,
+          "email": null,
+          "link": null,
+          "province": "57704333-faaf-4e4f-87c7-efbc2d340b46",
+          "id": "c9e1b490-5f56-4aea-9e14-f022f864922d",
+          "order": 3195,
+          "slug": "thu-dau-mot-3Azwwc"
+        },
+        "lat": 10.918528826071041,
+        "lng": 106.73278237590701
+      },
+      {
+        "translations": {
+          "vi": {
+            "address": "Nhà truyền thống cách mạng, phường Vũng Tàu"
+          }
+        },
+        "ward": null,
+        "lat": 10.348144196036268,
+        "lng": 107.07314507015018
+      }
+    ],
+    "translations": {
+      "vi": {
+        "name": "Triển lãm tranh cổ động, triển lãm nghệ thuật Tuần Văn hóa - Đại đoàn kết",
+        "name_en": null,
+        "des": "Triển lãm giới thiệu tranh cổ động, mỹ thuật và nhiếp ảnh tiêu biểu, tôn vinh bản sắc văn hóa, con người và thành tựu phát triển công nghiệp văn hóa, du lịch Thành phố Hồ Chí Minh giai đoạn 2021-2025",
+        "content_en": "",
+        "address": "Công viên Chi Lăng",
+        "organization_level": "provincial",
+        "organizer": null,
+        "transport": "",
+        "contact": null,
+        "basis": null,
+        "audience": null,
+        "audio": null,
+        "tags": null
+      },
+      "en": {
+        "name": "Exhibition, art exhibition and cultural week - Great Unity",
+        "address": "The Park of Chiang"
+      }
+    },
+    "thumbnail": "https://cmap.vn/media/app_event/Event/2026/10/26/215032-khach-tham-quan-trien-lam-anh-phuong-lan-ttxvn-fFsyvL.webp",
+    "image": "https://cmap.vn/media/app_event/Event/2026/10/26/215032-khach-tham-quan-trien-lam-anh-phuong-lan-ttxvn-45RTzm.jpg",
+    "end_time": "2026-11-25",
+    "link": null,
+    "lng": 106.701446992246,
+    "highlight": false,
+    "highlight_community": false,
+    "category": [],
+    "service": [],
+    "ward": "52956a76-a08d-4681-90e7-02ea35f87fb0",
+    "order": 1,
+    "like": 8,
+    "view": 56
+  },
+  {
+    "id": "a5a98ca3-7616-4c28-82e9-d5793af863e6",
+    "slug": "nha-hat-tuoi-tre-viet-nam-to-chuc-cac-hoat-dong-bieu-dien-nghe-thuat-huong-ung-ngay-van-hoa-viet-nam-vJY8Vd",
+    "province": "84090a9f-b434-47de-b614-1766f3b5ff34",
+    "type": "9a29babf-2ad9-4fba-9992-021bd9aae7d0",
+    "charge": true,
+    "start_time": "2026-10-27",
+    "lat": 210107,
+    "more_location_list": [],
+    "translations": {
+      "vi": {
+        "name": "Nhà hát Tuổi trẻ Việt Nam tổ chức tuần sự kiện hưởng ứng Ngày Văn hóa Việt Nam",
+        "name_en": "The Vietnam Youth Theatre is organizing artistic performances in response to Vietnam Culture Day:",
+        "des": "Nhà hát Tuổi trẻ Việt Nam triển khai tuần sự kiện với các vở diễn nghệ thuật chào mừng Ngày Văn hóa Việt Nam gắn với Ngày hội Đại đoàn kết toàn dân tộc năm 2026",
+        "content_en": "<p>Organizing artistic performances in response to Vietnam Culture Day: Reviewing the theater's artistic activity plan, selecting appropriate programs and plays to perform, introduce and promote Vietnamese cultural values; prioritizing works with ideological and artistic value, rich in national identity, contributing to traditional education, fostering love for the homeland and country, and enhancing the cultural and spiritual life of the people.</p><p>- Enhancing public access to and enjoyment of culture: Researching and organizing performances, exchanges, and introductions to theatrical arts suitable to the theater's actual conditions; paying attention to young people, students, and other public groups with a need to access art, contributing to expanding opportunities to enjoy professional art.</p><p>- Strengthening information and promotion efforts: Enhancing the significance of Vietnam Culture Day (November 24th), the programs and activities in response, and the unique values ​​of Vietnamese theatrical art through the theater's information and communication channels; effectively utilizing digital platforms and social media to promote activities and attract public attention and participation.</p><p>- Promoting the value of theatrical art in contemporary life: Continuing to improve the quality of programs and performances; encouraging artistic creativity linked to preserving and promoting national cultural identity; strengthening the connection between theatrical art and the public, especially the younger generation, contributing to building a healthy cultural environment and developing the cultural industry</p><p>To organize artistic performances as part of the Theatre's activities during the Vietnam Culture Week associated with the National Unity Day in 2026, the Vietnam Youth Theatre will hold a week-long event from November 22nd to November 29th, 2026, specifically as follows:</p><p>- The play \"The Soul of Truong Ba, the Butcher's Skin\": 8:00 PM on November 22nd and 28th, 2026.</p><p>- The play \"Southern Military Region\": 8:00 PM on November 29th, 2026.</p><p>- The play \"A Fierce Childhood\": 3:00 PM on November 29th, 2026.</p>",
+        "address": "Số 11 phố Ngô Thì Nhậm, phường Hai Bà Trưng, Thành phố Hà Nội",
+        "organization_level": "central",
+        "organizer": "Nhà hát Tuổi trẻ Việt Nam",
+        "transport": "",
+        "contact": "https://nhahattuoitre.vn/vo-dien",
+        "basis": null,
+        "audience": "Gia đình",
+        "audio": null,
+        "tags": null
+      },
+      "en": {
+        "name": "Youth Theatre of Vietnam organises a week-long event in response to Vietnam Culture Day",
+        "des": "The Youth Theatre of Vietnam implemented the weekly event with artistic performances to celebrate Vietnam Culture Day associated with the National Unity Day of 2026",
+        "address": "No. 11 of Ngó Thí Nhậm Street, Avenue of the Two Sisters, Hanoi City"
+      }
+    },
+    "thumbnail": "https://cmap.vn/media/app_event/Event/2026/10/27/thang-11-LHZgjm.webp",
+    "image": "https://cmap.vn/media/app_event/Event/2026/10/27/thang-11-IAvh2w.jpg",
+    "end_time": "2026-11-29",
+    "link": "https://nhahattuoitre.vn/vo-dien",
+    "lng": 1055111,
+    "highlight": false,
+    "highlight_community": false,
+    "category": [
+      "00f67aef-1809-43b8-a09f-20d2412257b8"
+    ],
+    "service": [
+      "2d75e359-06cd-415f-8f00-cbf8225ad248"
+    ],
+    "ward": "f23f8374-fa56-4848-a41a-f40f4d451aa4",
+    "order": -1,
+    "like": 10,
+    "view": 42
+  },
+  {
+    "id": "77db06fa-48fa-4ec0-97c3-b562eb823acb",
+    "slug": "le-hoi-nhay-lua-cua-nguoi-pa-then-X1Y63m",
+    "province": "c0bdf797-dfcc-41eb-9252-c821cbbc3616",
+    "type": "9a29babf-2ad9-4fba-9992-021bd9aae7d0",
+    "charge": false,
+    "start_time": "2025-12-05",
+    "lat": 22.41611,
+    "more_location_list": [],
+    "translations": {
+      "vi": {
+        "name": "Lễ hội nhảy lửa của người Pà Thẻn",
+        "name_en": null,
+        "des": "Tối ngày 5/12, tỉnh Tuyên Quang tổ chức Lễ hội nhảy lửa của người Pà Thẻn lần thứ I, năm 2025 tại xã Tân Trịnh. Đây là lần đầu tiên lễ hội được tổ chức với quy mô cấp tỉnh.",
+        "content_en": "",
+        "address": "Xã Tân Trịnh",
+        "organization_level": "central",
+        "organizer": null,
+        "transport": "",
+        "contact": null,
+        "basis": null,
+        "audience": null,
+        "audio": null,
+        "tags": null
+      }
+    },
+    "thumbnail": "https://cmap.vn/media/app_event/Event/2026/10/13/2609nhay-lua-pa-then_tq-5yxAwz.webp",
+    "image": "https://cmap.vn/media/app_event/Event/2026/10/13/2609nhay-lua-pa-then_tq-cSQ04G.jpg",
+    "end_time": "2025-12-05",
+    "link": null,
+    "lng": 104.74222,
+    "highlight": false,
+    "highlight_community": false,
+    "category": [],
+    "service": [],
+    "ward": "ec316d0a-becf-482b-a771-86a75f9f7430",
+    "order": 2,
+    "like": 0,
+    "view": 2
+  },
+  {
+    "id": "37bbcd0e-6299-4468-ad13-1a4c56087508",
+    "slug": "festival-thang-long-ha-noi-nam-2026-Ap2BeF",
+    "province": "84090a9f-b434-47de-b614-1766f3b5ff34",
+    "type": "9a29babf-2ad9-4fba-9992-021bd9aae7d0",
+    "charge": false,
+    "start_time": "2026-09-11",
+    "lat": 21.032,
+    "more_location_list": [],
+    "translations": {
+      "vi": {
+        "name": "Festival Thăng Long - Hà Nội năm 2026",
+        "name_en": null,
+        "des": "Tổ chức các hoạt động trình diễn, biểu diễn văn nghệ nghệ thuật dân gian và hiện đại quy mô lớn; giới thiệu nét đẹp lịch sử văn hóa lâu đời của Thăng Long - Hà Nội.",
+        "content_en": "",
+        "address": "Phường Hoàn Kiếm",
+        "organization_level": "provincial",
+        "organizer": null,
+        "transport": "",
+        "contact": null,
+        "basis": null,
+        "audience": null,
+        "audio": null,
+        "tags": null
+      },
+      "en": {
+        "name": "Festival of Hang Long - Hanoi in 2026",
+        "des": "Organize large-scale performance activities, folk and modern art literary performances; present the beauty of the long-standing cultural history of Thong Long - Hanoi.",
+        "address": "The Field of the Sword"
+      }
+    },
+    "thumbnail": "https://cmap.vn/media/app_event/Event/2026/10/14/ha-noi-poi-facebook-image-K54sED.webp",
+    "image": "https://cmap.vn/media/app_event/Event/2026/10/14/ha-noi-poi-facebook-image-2lqmMK.jpg",
+    "end_time": "2026-09-20",
+    "link": null,
+    "lng": 105.85,
+    "highlight": false,
+    "highlight_community": false,
+    "category": [],
+    "service": [],
+    "ward": null,
+    "order": null,
+    "like": 0,
+    "view": 4
+  },
+  {
+    "id": "c2ec825a-c49c-4b61-8d06-abb79f39f2ff",
+    "slug": "chuong-trinh-nghe-thuat-san-khau-hoa-tuyen-truyen-luu-dong-zMxTap",
+    "province": "57704333-faaf-4e4f-87c7-efbc2d340b46",
+    "type": "9a29babf-2ad9-4fba-9992-021bd9aae7d0",
+    "charge": false,
+    "start_time": "2026-11-02",
+    "lat": 10.8149967,
+    "more_location_list": [],
+    "translations": {
+      "vi": {
+        "name": "Chương trình nghệ thuật, sân khấu hóa tuyên truyền lưu động",
+        "name_en": null,
+        "des": "Chương trình nghệ thuật, sân khấu hóa tuyên truyền lưu động nhằm tuyên truyền phòng, chống bạo lực gia đình và giáo dục đạo đức, lối sống trong gia đình",
+        "content_en": "",
+        "address": "Trường THCS Phước Bình (02 đường 22, phường Phước Long, Thành phố Hồ Chí Minh)",
+        "organization_level": "provincial",
+        "organizer": "Sở Văn hóa và Thể thao",
+        "transport": "Đa phương tiện, tự túc",
+        "contact": "Trung tâm Văn hóa và Triển lãm Thành phố",
+        "basis": "Căn cứ Kế hoạch số 167/KH-UBND ngày 15 tháng 11 năm 2025 Ủy ban nhân  dân Thành phố về Kế hoạch hoạt động công tác gia đình năm 2026",
+        "audience": "Học sinh và nhân dân",
+        "audio": null,
+        "tags": null
+      },
+      "en": {
+        "name": "The artistic program, theatrical propaganda movements",
+        "des": "The artistic program, theatrical and mobile propaganda campaigns to promote defence, anti-family violence and moral education, family lifestyle",
+        "address": "Phước Bình School (02 street 22, Phước Long Avenue, Ho Chi Minh City)"
+      }
+    },
+    "thumbnail": "https://cmap.vn/media/app_event/Event/2026/10/23/phuong-phuoc-long-thcs-phuoc-binh-led-576x352-VRA6zH.webp",
+    "image": "https://cmap.vn/media/app_event/Event/2026/10/23/phuong-phuoc-long-thcs-phuoc-binh-led-576x352-Tqm0wa.png",
+    "end_time": "2026-11-02",
+    "link": null,
+    "lng": 106.7702165,
+    "highlight": false,
+    "highlight_community": false,
+    "category": [],
+    "service": [],
+    "ward": "1e5ba8d2-4b37-4693-a0bf-1e4343d6dc1b",
+    "order": 1,
+    "like": 2,
+    "view": 9
+  },
+  {
+    "id": "451f988c-9ab4-4cd9-be9e-830ce81b442d",
+    "slug": "le-tong-ket-va-trao-giai-cuoc-thi-anh-gia-dinh-cung-doc-sach-thanh-pho-ho-chi-minh-nam-2026-WDgqaH",
+    "province": "57704333-faaf-4e4f-87c7-efbc2d340b46",
+    "type": "9a29babf-2ad9-4fba-9992-021bd9aae7d0",
+    "charge": true,
+    "start_time": "2026-11-06",
+    "lat": 10.500819672762074,
+    "more_location_list": [],
+    "translations": {
+      "vi": {
+        "name": "Lễ tổng kết và trao giải Cuộc thi ảnh \"Gia đình cùng đọc sách Thành phố Hồ Chí Minh năm 2026\"",
+        "name_en": "2026 Ho Chi Minh City “Families Reading Together” Photo Contest Awards Ceremony",
+        "des": "Tổ chức Lễ tổng kết và trao giải Cuộc thi ảnh Gia đình cùng đọc sách Thành phố Hồ Chí Minh năm 2026 vào ngày 06-11-2026",
+        "content_en": "<p>The Closing Ceremony and Awards Presentation of the Ho Chi Minh City 2026 “Families Reading Together” Photography Contest aims to review the contest’s achievements and recognize outstanding organizations, individuals, and families. The event will also showcase exemplary photographs that celebrate the beauty of reading culture, promote a spirit of lifelong learning, and highlight the sharing of knowledge across generations within families.</p>",
+        "address": "Trung tâm Văn hóa, Nghệ thuật và Thể thao tỉnh Bà Rịa - Vũng Tàu",
+        "organization_level": "provincial",
+        "organizer": "Bảo tàng - Thư viện tỉnh Bà Rịa - Vũng Tàu",
+        "transport": "Ô tô, xe máy",
+        "contact": "Phòng Nghiệp vụ Thư viện",
+        "basis": "Căn cứ Kế hoạch số 15858/KH-SVHTT ngày 26 tháng 9 năm 2026 của Sở Văn hóa và Thể thao Thành phố Hồ Chí Minh về việc Tổ chức Lễ tổng kết và trao giải Cuộc thi ảnh Gia đình cùng đọc sách Thành phố Hồ Chí Minh năm 2026",
+        "audience": "Gia đình thí sinh đạt giải, phụ huynh, học sinh, đoàn viên",
+        "audio": null,
+        "tags": null
+      },
+      "en": {
+        "name": "Overview and awards of the \"Family reading book Ho Chi Minh City 2026\" photo contest",
+        "des": "Organizes the General List and awards Family photo and book reading competition Ho Chi Minh City 2026 on 06-11-2026",
+        "address": "Cultural, artistic and sports center of Ba Rịa-Vũng Tàu Province"
+      }
+    },
+    "thumbnail": "https://cmap.vn/media/app_event/Event/2026/10/29/anh-1-4CYTck.webp",
+    "image": "https://cmap.vn/media/app_event/Event/2026/10/29/anh-2-9wRim9.jpg",
+    "end_time": "2026-11-06",
+    "link": "http://www.thuvienbrvt.com.vn/",
+    "lng": 107.16788688073267,
+    "highlight": false,
+    "highlight_community": false,
+    "category": [],
+    "service": [],
+    "ward": "ca5abcdc-5815-40e4-b192-3b66e7e903b9",
+    "order": 3,
+    "like": 3,
+    "view": 19
+  },
+  {
+    "id": "ee9edc43-490b-4af1-8561-d08ffc128a6e",
+    "slug": "dai-hoi-the-thao-toan-quoc-lan-thu-x-nam-2026-mon-bowling-xRuz9D",
+    "province": "57704333-faaf-4e4f-87c7-efbc2d340b46",
+    "type": "9488d327-778f-44b6-b2e7-d09d296949ae",
+    "charge": false,
+    "start_time": "2026-11-10",
+    "lat": 11.07959333,
+    "more_location_list": [],
+    "translations": {
+      "vi": {
+        "name": "Đại hội Thể thao toàn quốc lần thứ X năm 2026 – môn Bowling",
+        "name_en": "The 10th National Sports Games, 2026 – Bowling",
+        "des": "Môn thi đấu Bowling tại Đại hội Thể thao toàn quốc lần thứ X năm 2026 được tổ chức với tổng cộng 12 nội dung thi đấu theo Điều lệ môn Bowling đã ban hành.",
+        "content_en": "<p>1. Date &amp; Venue:<br>Date: The event will take place from November 10, 2026, to November 21, 2026.<br>Venue: Super Lanez Bowling Center, 446 Hoang Van Thu Street, Tan Son Nhat Ward, Ho Chi Minh City.<br>2. Scale &amp; Participants: 12 competition categories (as per the issued regulations for Bowling).</p>",
+        "address": "Trung tâm Bowling Super Lanez, số 446 đường Hoàng Văn Thụ, phường Tân Sơn Nhất, Thành phố Hồ Chí Minh",
+        "organization_level": "central",
+        "organizer": null,
+        "transport": "Xe buýt, taxi, xe máy, phương tiện cá nhân",
+        "contact": "Trung tâm Huấn luyện và Thi đấu Thể thao tỉnh Bình Dương",
+        "basis": "\"Kế hoạch số 10/KH-UBND ngày 09/01/20205 của Ủy ban nhân dân Thành phố Hồ Chí Minh về tổ chức Đại hội Thể thao toàn quốc lần thứ X năm 2026 tại Thành phố Hồ Chí Minh Kế hoạch số 15292/KH-SVHTT ngày 20/10/2026 của Sở Văn hóa và Thể thao TP. Hồ Chí Minh về tổ chức Đại hội Thể thao toàn quốc lần thứ x - môn Bowling\"",
+        "audience": "Công chúng, người dân Thành phố Hồ Chí Minh, du khách trong nước và quốc tế, các đoàn thể thao, vận động viên, huấn luyện viên và người hâm mộ thể thao",
+        "audio": null,
+        "tags": null
+      },
+      "en": {
+        "name": "10th National Sports Congress in 2026 Bowling",
+        "des": "The Bowling Tournament at the 2026 10th National Sports Congress was held with a total of 12 contents competing under the Bowling Rules.",
+        "address": "The Super Lanez Bowling Center, located at 446 Huang Văn Thú Street, Tan Son Hang Square, Ho Chi Minh City"
+      }
+    },
+    "thumbnail": "https://cmap.vn/media/app_event/Event/2026/10/28/logo_dhtttqx-RG0Y9w.webp",
+    "image": "https://cmap.vn/media/app_event/Event/2026/10/28/logo_dhtttqx-WkRZVz.png",
+    "end_time": "2026-11-21",
+    "link": null,
+    "lng": 106.6552071,
+    "highlight": false,
+    "highlight_community": false,
+    "category": [],
+    "service": [],
+    "ward": "48329d94-9caf-4045-8527-468a1dea28ba",
+    "order": null,
+    "like": 1,
+    "view": 22
+  },
+  {
+    "id": "8ef68097-0607-4169-8495-813ffbee0a9e",
+    "slug": "dai-hoi-the-thao-toan-quoc-lan-thu-x-nam-2026-mon-khieu-vu-the-thao-K0o6lX",
+    "province": "57704333-faaf-4e4f-87c7-efbc2d340b46",
+    "type": "9488d327-778f-44b6-b2e7-d09d296949ae",
+    "charge": false,
+    "start_time": "2026-11-14",
+    "lat": 11.0426463,
+    "more_location_list": [],
+    "translations": {
+      "vi": {
+        "name": "Đại hội Thể thao toàn quốc lần thứ X năm 2026 – môn Khiêu vũ thể thao",
+        "name_en": "The 10th National Sports Games, 2026 – Dancesport",
+        "des": "Môn thi đấu Khiêu vũ thể thao tại Đại hội Thể thao toàn quốc lần thứ X năm 2026 được tổ chức với tổng cộng 14 nội dung thi đấu theo Điều lệ môn Khiêu vũ thể thao đã ban hành",
+        "content_en": "<p>1. Date &amp; Venue:<br>Date: The event will take place from November 14, 2026, to November 18, 2026.<br>Venue: Binh Duong Provincial Sports Training and Competition Center, 687 Vo Van Kiet Street, Binh Duong Ward, Ho Chi Minh City.<br>2. Scale &amp; Participants: 14 competition categories (as per the issued regulations for Dancesport).<br></p>",
+        "address": "Trung tâm Huấn luyện và Thi đấu Thể thao tỉnh Bình Dương, 687 đường Võ Vặt Kiệt, phường Bình Dương, Thành phồ Hồ Chí Minh",
+        "organization_level": "central",
+        "organizer": "Ban tổ chức Đại hội Thể thao toàn quốc lần thứ X năm 2026",
+        "transport": "Xe buýt, taxi, xe máy, phương tiện cá nhân",
+        "contact": "Trung tâm Huấn luyện và Thi đấu Thể thao tỉnh Bình Dương",
+        "basis": "Kế hoạch số 10/KH-UBND ngày 09/01/2025 của Ủy ban nhân dân Thành phố Hồ Chí Minh về tổ chức Đại hội Thể thao toàn quốc lần thứ X năm 2026 tại Thành phố Hồ Chí Minh Kế hoạch số 15862/KH-SVHTT ngày 22/10/2026 của Sở Văn hóa và Thể thao TP. Hồ Chí Minh về tổ chức Đại hội Thể thao toàn quốc lần thứ x - môn Khiêu vũ thể thao",
+        "audience": "Công chúng, người dân Thành phố Hồ Chí Minh, du khách trong nước và quốc tế, các đoàn thể thao, vận động viên, huấn luyện viên và người hâm mộ thể thao",
+        "audio": null,
+        "tags": null
+      },
+      "en": {
+        "name": "The 10th National Sports Congress in 2026",
+        "des": "Sports Dance Competition at the 10th National Sports Congress in 2026 was held with a total of 14 contents competing under the Sports Dance Rules.",
+        "address": "Training and Sports Competition Center of Bình Dương Province, 687 Võ Vặt Kiệt Street, Bình Dương Square, Ho Chi Minh City"
+      }
+    },
+    "thumbnail": "https://cmap.vn/media/app_event/Event/2026/10/28/logo_dhtttqx-nVOx2b.webp",
+    "image": "https://cmap.vn/media/app_event/Event/2026/10/28/logo_dhtttqx-32oC6B.png",
+    "end_time": "2026-11-18",
+    "link": null,
+    "lng": 106.662676,
+    "highlight": false,
+    "highlight_community": false,
+    "category": [],
+    "service": [],
+    "ward": "57777706-07e7-412f-ae1d-745a6d3eebed",
+    "order": null,
+    "like": 5,
+    "view": 21
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "id": "00f67aef-1809-43b8-a09f-20d2412257b8",
+    "translations": {
+      "vi": {
+        "name": "Sự kiện nổi bật",
+        "des": ""
+      }
+    },
+    "thumbnail": null,
+    "image": null,
+    "code": "sknb",
+    "parent": null,
+    "child_list": [],
+    "order": null,
+    "slug": "su-kien-noi-bat-8EYS1d",
+    "created_at": "2026-09-16T10:56:55.077821+07:00",
+    "created_by": "1507c466-6d5a-4b3e-acba-d39bba38b1c9",
+    "updated_at": "2026-10-12T17:06:55.281353+07:00",
+    "updated_by": "8388be11-07f3-4426-aef3-5c7ea1ccd259"
+  },
+  {
+    "id": "4b6d0925-f1fe-4a77-bd41-9b8227657bf9",
+    "translations": {
+      "en": {
+        "name": "Featured Events",
+        "des": ""
+      },
+      "ja": {
+        "name": "注目のイベント",
+        "des": ""
+      },
+      "ko": {
+        "name": "주요 행사",
+        "des": ""
+      },
+      "de": {
+        "name": "Hervorgehobene Veranstaltungen",
+        "des": ""
+      },
+      "th": {
+        "name": "กิจกรรมเด่น",
+        "des": ""
+      },
+      "zh-hans": {
+        "name": "精彩活动",
+        "des": ""
+      },
+      "id": {
+        "name": "Acara Unggulan",
+        "des": ""
+      },
+      "vi": {
+        "name": "Sinh hoạt cộng đồng nổi bật",
+        "des": ""
+      }
+    },
+    "thumbnail": null,
+    "image": null,
+    "code": "shcdnb",
+    "parent": null,
+    "child_list": [],
+    "order": null,
+    "slug": "sinh-hoat-cong-dong-noi-bat-BCdpPQ",
+    "created_at": "2026-09-17T11:00:01.833034+07:00",
+    "created_by": "1507c466-6d5a-4b3e-acba-d39bba38b1c9",
+    "updated_at": "2026-10-12T17:07:14.094732+07:00",
+    "updated_by": "8388be11-07f3-4426-aef3-5c7ea1ccd259"
+  }
+]

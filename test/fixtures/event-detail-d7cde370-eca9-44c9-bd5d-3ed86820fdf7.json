@@ -1,0 +1,74 @@
+{
+  "translations": {
+    "vi": {
+      "name": "Hoạt động giáo dục  trải nghiệm dưới hình thức trò chơi trực tuyến",
+      "name_en": "Interactive Educational Activities through Online Games",
+      "des": "Xây dựng hành trình trải nghiệm kết nối môi trường trực tuyến với không gian thực tế của Bảo tàng Mỹ thuật Việt Nam.",
+      "content": "<p>Bảo tàng Mỹ thuật Việt Nam trưng bày nhiều tài liệu, hiện vật và các tác phẩm tiêu biểu. Điểm đến là lựa chọn lý tưởng cho hoạt động tham quan, tìm hiểu mỹ thuật và dự các buổi triển lãm ấn tượng.</p><div>Nhằm xây dựng hành trình trải nghiệm kết nối môi trường trực tuyến với không gian thực tế của Bảo tàng Mỹ thuật Việt Nam, Bảo tàng tổ chức cuộc thi, thử thách, nhiệm vụ và các hoạt động tương tác, bao gồm các nhiệm vụ phụ gắn với tác phẩm, hiện vật, không gian, triển lãm, chương trình và hoạt động của Bảo tàng Mỹ thuật Việt Nam (trực tuyến và trực tiếp).</div><p><br></p><p>- Thời gian: 17/11/2026 - 24/06/2027</p><p>- Địa điểm:&nbsp;Bảo tàng Mỹ thuật Việt Nam, 66 Nguyễn Thái Học, Ba Đình, Hà Nội</p>",
+      "content_en": "",
+      "address": "Bảo tàng Mỹ thuật Việt Nam, 66 Nguyễn Thái Học, Ba Đình, Hà Nội",
+      "ticket": "Miễn phí",
+      "organization_level": "central",
+      "organizer": null,
+      "transport": "",
+      "contact": null,
+      "basis": null,
+      "audience": null,
+      "audio": null,
+      "tags": null
+    },
+    "en": {
+      "name": "Experience education activities in the form of online games",
+      "des": "Build an online environment-connected experience journey with the real-life space of the Vietnamese Museum of Fine Arts.",
+      "content": "<p>The Museum of Fine Arts of Vietnam displays many documents, artifacts and typical works. The destination is an ideal choice for sightseeing, art exploration and impressive exhibitions.</p><div>In order to build a journey of online environmentally connected experience with the actual space of the Vietnamese Museum of Fine Arts, the Museum organises competitions, challenges, missions and interactive activities, including sub-missions associated with the works, artifacts, space, exhibitions, programs and activities of the Vietnamese Museum of Fine Arts (online and live).</div><p><br></p><p>- Time: 17th of November 2026 to 24th of June 2027</p><p>- Location: Vietnamese Museum of Fine Arts, 66 Nguyễn Thái Học, Ba Đình, Hà Nội</p>",
+      "address": "Museum of Vietnamese Art, 66 Nguyen Thai, Ba Ding, Hanoi"
+    }
+  },
+  "thumbnail": "https://cmap.vn/media/app_event/Event/2026/10/31/logo-baotangmythuatvn-b5xJUg.webp",
+  "image": "https://cmap.vn/media/app_event/Event/2026/10/11/1791715002435_5271329395392374309_5271329395392374309_74b48e37304e6030ac9ad6cda8f4c72e-hk6p15.jpg",
+  "start_time": "2026-11-17",
+  "end_time": "2027-06-24",
+  "link": null,
+  "lat": 21.030994677919356,
+  "lng": 105.8371698272217,
+  "charge": true,
+  "allow_comment": true,
+  "highlight": false,
+  "highlight_community": true,
+  "category": [],
+  "type": "24254f39-99bc-4160-b72f-f4e384bdee92",
+  "service": [],
+  "province": {
+    "translations": {
+      "vi": {
+        "name": "Hà Nội",
+        "des": "Nơi những giá trị nghìn năm tuổi hòa cùng nhịp sống hiện đại. Từ những lễ hội truyền thống, không gian văn hóa phố cổ đến các chương trình nghệ thuật, triển lãm và sự kiện đương đại, Thủ đô luôn có những điểm hẹn văn hóa hấp dẫn chờ bạn khám phá.",
+        "content": "<div>Hà Nội sôi động với nhiều sự kiện văn hóa, lễ hội và hoạt động nghệ thuật diễn ra quanh năm. Thành phố thường xuyên tổ chức các chương trình quy mô lớn như Lễ hội Áo dài, Lễ hội Thiết kế sáng tạo, các hoạt động quảng bá di sản và chương trình nghệ thuật tại khu vực phố cổ, hồ Hoàn Kiếm.</div><div><br></div><div>Không gian di sản kết hợp nghệ thuật truyền thống và các hoạt động sáng tạo mang đến nhiều trải nghiệm đa dạng. Mỗi mùa, Hà Nội lại có những sự kiện riêng, tạo thêm sức hút cho hành trình khám phá Thủ đô.</div>",
+        "organ": null,
+        "tags": null
+      }
+    },
+    "thumbnail": "https://cmap.vn/media/app_category/Province/2026/09/10/4-65405306075629612529605-2L29yr.webp",
+    "image": "https://cmap.vn/media/app_category/Province/2026/09/10/4-65405306075629612529605-ORrLKL.jpg",
+    "code": "VN-HN",
+    "lat": null,
+    "lng": null,
+    "data": null,
+    "phone": null,
+    "email": null,
+    "link": null,
+    "country": "61c21057-ba9c-4c86-8387-48202e9b2db8",
+    "id": "84090a9f-b434-47de-b614-1766f3b5ff34",
+    "order": 1,
+    "slug": "ha-noi-5HQ5Xh"
+  },
+  "ward": null,
+  "image_list": [],
+  "checkin": null,
+  "more_location_list": [],
+  "id": "d7cde370-eca9-44c9-bd5d-3ed86820fdf7",
+  "order": 2,
+  "slug": "hoat-dong-giao-duc-trai-nghiem-duoi-hinh-thuc-tro-choi-truc-tuyen-n3eDjK",
+  "like": 24,
+  "view": 68
+}

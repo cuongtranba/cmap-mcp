@@ -1,0 +1,126 @@
+[
+  {
+    "id": "1606afd9-c878-4eff-83ea-e82760508c56",
+    "translations": {
+      "vi": {
+        "name": "Bảo tàng",
+        "des": ""
+      },
+      "en": {
+        "name": "Museum",
+        "des": ""
+      }
+    },
+    "thumbnail": null,
+    "image": null,
+    "order": null,
+    "slug": "bao-tang-Wu4pz7",
+    "created_at": "2026-09-17T20:59:13.173691+07:00",
+    "created_by": "1507c466-6d5a-4b3e-acba-d39bba38b1c9",
+    "updated_at": "2026-10-11T23:32:22.582261+07:00",
+    "updated_by": "8388be11-07f3-4426-aef3-5c7ea1ccd259"
+  },
+  {
+    "id": "0f6bbc97-29e4-494f-98f0-28e3c42f011a",
+    "translations": {
+      "vi": {
+        "name": "Di tích",
+        "des": ""
+      },
+      "en": {
+        "name": "Historical and Cultural Relics",
+        "des": ""
+      }
+    },
+    "thumbnail": null,
+    "image": null,
+    "order": null,
+    "slug": "di-tich-2G56q5",
+    "created_at": "2026-09-17T20:59:18.139765+07:00",
+    "created_by": "1507c466-6d5a-4b3e-acba-d39bba38b1c9",
+    "updated_at": "2026-10-11T23:32:31.625078+07:00",
+    "updated_by": "8388be11-07f3-4426-aef3-5c7ea1ccd259"
+  },
+  {
+    "id": "e8bfda36-2b5c-49ef-a523-b6dc4df6cd09",
+    "translations": {
+      "vi": {
+        "name": "Điểm vui chơi, giải trí",
+        "des": ""
+      },
+      "en": {
+        "name": "Recreation and Entertainment Areas",
+        "des": ""
+      }
+    },
+    "thumbnail": null,
+    "image": null,
+    "order": null,
+    "slug": "diem-vui-choi-giai-tri-49G3u1",
+    "created_at": "2026-09-17T20:59:27.470218+07:00",
+    "created_by": "1507c466-6d5a-4b3e-acba-d39bba38b1c9",
+    "updated_at": "2026-10-11T23:32:44.417900+07:00",
+    "updated_by": "8388be11-07f3-4426-aef3-5c7ea1ccd259"
+  },
+  {
+    "id": "854480b8-2f02-40bf-8cc3-3be00364272e",
+    "translations": {
+      "vi": {
+        "name": "Ẩm thực",
+        "des": ""
+      },
+      "en": {
+        "name": "Cuisine",
+        "des": ""
+      }
+    },
+    "thumbnail": null,
+    "image": null,
+    "order": null,
+    "slug": "am-thuc-A04sNC",
+    "created_at": "2026-09-17T22:18:28.783874+07:00",
+    "created_by": "1507c466-6d5a-4b3e-acba-d39bba38b1c9",
+    "updated_at": "2026-10-11T23:32:51.298002+07:00",
+    "updated_by": "8388be11-07f3-4426-aef3-5c7ea1ccd259"
+  },
+  {
+    "id": "c558373f-dad0-49fe-b101-ec3d9e84619e",
+    "translations": {
+      "vi": {
+        "name": "Văn hóa - Di sản văn hóa phi vật thể quốc gia",
+        "des": "Lễ hội Ok Om Bok là loại hình Di sản văn hóa phi vật thể quốc gia"
+      },
+      "en": {
+        "name": "Culture - Intangible cultural heritage of the nation"
+      }
+    },
+    "thumbnail": null,
+    "image": null,
+    "order": null,
+    "slug": "van-hoa-di-san-van-hoa-phi-vat-the-quoc-gia-wS317f",
+    "created_at": "2026-10-09T15:20:10.872968+07:00",
+    "created_by": "de6763b8-e987-40a4-a509-b5fea11872de",
+    "updated_at": "2026-10-09T15:28:23.741480+07:00",
+    "updated_by": "de6763b8-e987-40a4-a509-b5fea11872de"
+  },
+  {
+    "id": "c3d6e079-2dd4-4d3b-abdf-8ebe7863c478",
+    "translations": {
+      "vi": {
+        "name": "Du lịch",
+        "des": ""
+      },
+      "en": {
+        "name": "Travel"
+      }
+    },
+    "thumbnail": null,
+    "image": null,
+    "order": null,
+    "slug": "du-lich-rLgVTm",
+    "created_at": "2026-10-20T12:44:30.058547+07:00",
+    "created_by": "8388be11-07f3-4426-aef3-5c7ea1ccd259",
+    "updated_at": "2026-10-20T12:44:30.058595+07:00",
+    "updated_by": null
+  }
+]

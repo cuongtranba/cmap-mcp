@@ -1,0 +1,13 @@
+.git
+.github
+.worktrees
+node_modules
+dist
+coverage
+.cache
+.env
+.env.*
+*.tgz
+docs
+test
+skills

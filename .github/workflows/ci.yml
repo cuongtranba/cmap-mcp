@@ -1,0 +1,74 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  # Reused by release.yml so a tag runs exactly the same checks as a PR.
+  workflow_call:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  # This job name is the required status check on main. Do not rename it.
+  ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: package.json
+
+      - name: Install
+        run: bun install --frozen-lockfile
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Typecheck
+        run: bun run typecheck
+
+      - name: Test (offline)
+        run: bun test
+
+      - name: Build the Node bundle
+        run: bun run build
+
+      # The runner's own Node (not Bun) proves `npx cmap-mcp` works. Only
+      # commands that never touch the network: no `taxonomies`, no `sync`.
+      - name: Smoke test the bundle on Node
+        run: |
+          set -euo pipefail
+          expected="$(bun -p "require('./package.json').version")"
+          node --version
+          actual="$(node dist/cli.js --version)"
+          test "$actual" = "$expected" || { echo "::error::dist/cli.js reports $actual, package.json has $expected"; exit 1; }
+          node dist/cli.js --help > /dev/null
+
+      - name: Build and smoke test the linux-x64 binary
+        run: |
+          set -euo pipefail
+          bun run build:binaries -- --only linux-x64
+          ./dist/bin/cmap-linux-x64 --version
+          ./dist/bin/cmap-linux-x64 --help > /dev/null
+
+      - name: Check the npm package contents
+        run: bun pm pack --dry-run
+
+      # `skills add` is interactive on a TTY; with stdin closed it only lists.
+      - name: Check the agent skill is discoverable
+        run: |
+          set -euo pipefail
+          bunx skills add ./ --list < /dev/null 2>&1 | tee skills-list.txt
+          sed 's/\x1b\[[0-9;?]*[a-zA-Z]//g' skills-list.txt | grep -Eq '^│ +cmap$' \
+            || { echo "::error::skill 'cmap' is not listed by 'skills add ./ --list'"; exit 1; }
