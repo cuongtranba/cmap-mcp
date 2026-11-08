@@ -42,11 +42,12 @@
     "format": "biome check --write .",
     "typecheck": "tsc --noEmit",
     "test": "bun test --path-ignore-patterns \"test/live/**\"",
-    "test:live": "bun test test/live",
+    "test:live": "bun test test/live --timeout 180000",
     "build": "bun run scripts/build.ts",
     "build:bin": "bun run scripts/build.ts --bin",
     "fixtures:record": "bun run scripts/record-fixtures.ts",
-    "sync:once": "bun run scripts/sync-once.ts"
+    "sync:once": "bun run scripts/sync-once.ts",
+    "contract:record": "bun run scripts/record-contract.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/server": "2.4.0",

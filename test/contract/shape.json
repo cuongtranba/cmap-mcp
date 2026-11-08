@@ -1,0 +1,283 @@
+{
+  "recordedAt": "2026-11-08T14:53:23.329Z",
+  "endpoints": {
+    "province": {
+      "keys": {
+        "code": ["string"],
+        "country": ["string"],
+        "data": ["null"],
+        "email": ["null", "string"],
+        "id": ["string"],
+        "image": ["null", "string"],
+        "lat": ["null", "number"],
+        "link": ["null", "string"],
+        "lng": ["null", "number"],
+        "order": ["number"],
+        "phone": ["null", "string"],
+        "slug": ["string"],
+        "thumbnail": ["string"],
+        "translations": ["object"]
+      },
+      "vi": {
+        "content": ["string"],
+        "des": ["string"],
+        "name": ["string"],
+        "organ": ["null", "string"],
+        "tags": ["null", "string"]
+      },
+      "en": {
+        "des": ["string"],
+        "name": ["string"]
+      }
+    },
+    "eventType": {
+      "keys": {
+        "code": ["null"],
+        "created_at": ["string"],
+        "created_by": ["string"],
+        "id": ["string"],
+        "image": ["null"],
+        "order": ["number"],
+        "slug": ["string"],
+        "thumbnail": ["null"],
+        "translations": ["object"],
+        "updated_at": ["string"],
+        "updated_by": ["string"]
+      },
+      "vi": {
+        "des": ["string"],
+        "name": ["string"]
+      },
+      "en": {
+        "des": ["string"],
+        "name": ["string"]
+      }
+    },
+    "eventCategory": {
+      "keys": {
+        "child_list": ["array"],
+        "code": ["string"],
+        "created_at": ["string"],
+        "created_by": ["string"],
+        "id": ["string"],
+        "image": ["null"],
+        "order": ["null"],
+        "parent": ["null"],
+        "slug": ["string"],
+        "thumbnail": ["null"],
+        "translations": ["object"],
+        "updated_at": ["string"],
+        "updated_by": ["string"]
+      },
+      "vi": {
+        "des": ["string"],
+        "name": ["string"]
+      },
+      "en": {
+        "des": ["string"],
+        "name": ["string"]
+      }
+    },
+    "positionType": {
+      "keys": {
+        "created_at": ["string"],
+        "created_by": ["string"],
+        "id": ["string"],
+        "image": ["null"],
+        "order": ["null"],
+        "slug": ["string"],
+        "thumbnail": ["null"],
+        "translations": ["object"],
+        "updated_at": ["string"],
+        "updated_by": ["null", "string"]
+      },
+      "vi": {
+        "des": ["string"],
+        "name": ["string"]
+      },
+      "en": {
+        "des": ["string"],
+        "name": ["string"]
+      }
+    },
+    "event": {
+      "keys": {
+        "category": ["array"],
+        "charge": ["boolean"],
+        "end_time": ["string"],
+        "highlight": ["boolean"],
+        "highlight_community": ["boolean"],
+        "id": ["string"],
+        "image": ["string"],
+        "lat": ["number"],
+        "like": ["number"],
+        "link": ["null", "string"],
+        "lng": ["number"],
+        "more_location_list": ["array"],
+        "order": ["null", "number"],
+        "province": ["string"],
+        "service": ["array"],
+        "slug": ["string"],
+        "start_time": ["string"],
+        "thumbnail": ["string"],
+        "translations": ["object"],
+        "type": ["string"],
+        "view": ["number"],
+        "ward": ["null", "string"]
+      },
+      "vi": {
+        "address": ["string"],
+        "audience": ["null", "string"],
+        "audio": ["null"],
+        "basis": ["null", "string"],
+        "contact": ["null", "string"],
+        "content_en": ["string"],
+        "des": ["string"],
+        "name": ["string"],
+        "name_en": ["null", "string"],
+        "organization_level": ["string"],
+        "organizer": ["null", "string"],
+        "tags": ["null"],
+        "transport": ["string"]
+      },
+      "en": {
+        "address": ["string"],
+        "des": ["string"],
+        "name": ["string"]
+      }
+    },
+    "offer": {
+      "keys": {
+        "category": ["array"],
+        "charge": ["boolean"],
+        "end_time": ["string"],
+        "highlight": ["boolean"],
+        "highlight_community": ["boolean"],
+        "highlight_province": ["boolean"],
+        "id": ["string"],
+        "image": ["string"],
+        "kind": ["string"],
+        "lat": ["number"],
+        "like": ["number"],
+        "link": ["null", "string"],
+        "lng": ["number"],
+        "more_location_list": ["array"],
+        "order": ["null", "number"],
+        "price": ["null"],
+        "province": ["string"],
+        "service": ["array"],
+        "slug": ["string"],
+        "start_time": ["string"],
+        "thumbnail": ["string"],
+        "translations": ["object"],
+        "type": ["array", "string"],
+        "view": ["number"],
+        "ward": ["null", "string"]
+      },
+      "vi": {
+        "address": ["string"],
+        "audience": ["null", "string"],
+        "audio": ["null"],
+        "basis": ["null", "string"],
+        "contact": ["null", "string"],
+        "content": ["string"],
+        "content_en": ["string"],
+        "des": ["string"],
+        "name": ["string"],
+        "name_en": ["null", "string"],
+        "open_time": ["string"],
+        "organization_level": ["string"],
+        "organizer": ["null", "string"],
+        "rule": ["string"],
+        "tags": ["null"],
+        "ticket": ["string"],
+        "transport": ["string"]
+      },
+      "en": {}
+    },
+    "position": {
+      "keys": {
+        "category": ["array"],
+        "charge": ["boolean"],
+        "end_time": ["string"],
+        "highlight": ["boolean"],
+        "highlight_province": ["boolean"],
+        "id": ["string"],
+        "image": ["string"],
+        "lat": ["number"],
+        "like": ["number"],
+        "lng": ["number"],
+        "price": ["null"],
+        "province": ["string"],
+        "service": ["array"],
+        "slug": ["string"],
+        "start_time": ["string"],
+        "thumbnail": ["string"],
+        "translations": ["object"],
+        "type": ["array"],
+        "view": ["number"],
+        "ward": ["null", "string"]
+      },
+      "vi": {
+        "address": ["string"],
+        "audio": ["null"],
+        "des": ["string"],
+        "name": ["string"],
+        "tags": ["null"]
+      },
+      "en": {}
+    },
+    "eventDetail": {
+      "keys": {
+        "allow_comment": ["boolean"],
+        "category": ["array"],
+        "charge": ["boolean"],
+        "checkin": ["null"],
+        "end_time": ["string"],
+        "highlight": ["boolean"],
+        "highlight_community": ["boolean"],
+        "id": ["string"],
+        "image": ["string"],
+        "image_list": ["array"],
+        "lat": ["number"],
+        "like": ["number"],
+        "link": ["null", "string"],
+        "lng": ["number"],
+        "more_location_list": ["array"],
+        "order": ["number"],
+        "province": ["object"],
+        "service": ["array"],
+        "slug": ["string"],
+        "start_time": ["string"],
+        "thumbnail": ["string"],
+        "translations": ["object"],
+        "type": ["string"],
+        "view": ["number"],
+        "ward": ["object"]
+      },
+      "vi": {
+        "address": ["string"],
+        "audience": ["null", "string"],
+        "audio": ["null"],
+        "basis": ["null"],
+        "contact": ["null", "string"],
+        "content": ["string"],
+        "content_en": ["string"],
+        "des": ["string"],
+        "name": ["string"],
+        "name_en": ["null"],
+        "organization_level": ["string"],
+        "organizer": ["string"],
+        "tags": ["null"],
+        "ticket": ["string"],
+        "transport": ["string"]
+      },
+      "en": {
+        "address": ["string"],
+        "content": ["string"],
+        "des": ["string"],
+        "name": ["string"]
+      }
+    }
+  }
+}
