@@ -54,7 +54,7 @@ EXAMPLES
   cmap events search --province "Ha Noi" --free --limit 10
   cmap events search festival --lang en --text
   cmap events near 21.0285 105.8542 --radius-km 5
-  cmap event get am-vang-dong-que
+  cmap event get am-vang-dong-que-9TXHDc
   cmap province get "da nang"
   cmap offers search "bao tang"
   cmap taxonomies
@@ -125,7 +125,7 @@ organizationLevel, contact, transport, audience, link, tags, all locations, imag
 Accepts the event id (UUID) or its slug. Exit code 1 with NOT_FOUND when unknown.${DATA_FLAGS}
 
 EXAMPLE
-  cmap event get am-vang-dong-que --lang en
+  cmap event get am-vang-dong-que-9TXHDc --lang en
 `,
 
   "offers search": `cmap offers search [query] [flags]
