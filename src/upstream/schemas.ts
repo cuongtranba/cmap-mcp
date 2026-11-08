@@ -50,17 +50,17 @@ export const eventTranslationsSchema = z.looseObject({
   en: eventTranslationEn.nullish(),
 });
 
+/** Provinces and wards appear as an id in lists and as a nested object in some responses. */
+const entityRef = z.union([id, z.looseObject({ id })]);
+
 export const moreLocationSchema = z.looseObject({
   translations: z
     .looseObject({ vi: z.looseObject({ address: nullableString }).nullish() })
     .nullish(),
-  ward: nullableString,
+  ward: entityRef.nullish(),
   lat: coordinate,
   lng: coordinate,
 });
-
-/** Provinces appear as an id in lists and as a nested object in event detail responses. */
-const provinceRef = z.union([id, z.looseObject({ id })]);
 
 const eventBase = {
   id,
@@ -77,8 +77,8 @@ const eventBase = {
   highlight: z.boolean().nullish(),
   highlight_community: z.boolean().nullish(),
   order: z.number().nullish(),
-  province: provinceRef,
-  ward: nullableString,
+  province: entityRef,
+  ward: entityRef.nullish(),
   more_location_list: z.array(moreLocationSchema).nullish(),
   type: typeRef.nullish(),
   category: idList.nullish(),
@@ -104,17 +104,32 @@ export const offerSchema = z.looseObject({
 });
 export type UpstreamOffer = z.infer<typeof offerSchema>;
 
+const positionTranslation = z.looseObject({
+  name: z.string(),
+  des: nullableString,
+  content: nullableString,
+  address: nullableString,
+  ticket: nullableString,
+  open_time: nullableString,
+  rule: nullableString,
+  audio: z.unknown().optional(),
+  tags: z.unknown().optional(),
+});
+
 export const positionSchema = z.looseObject({
   id,
   slug: z.string().min(1),
-  translations: z.looseObject({ vi: nameDes.nullish(), en: nameDes.nullish() }),
+  translations: z.looseObject({
+    vi: positionTranslation.nullish(),
+    en: positionTranslation.nullish(),
+  }),
   thumbnail: nullableString,
   image: nullableString,
   lat: coordinate,
   lng: coordinate,
   price: z.unknown().optional(),
-  province: provinceRef,
-  ward: nullableString,
+  province: entityRef,
+  ward: entityRef.nullish(),
   type: typeRef.nullish(),
   category: z.array(z.unknown()).nullish(),
   charge: z.boolean().nullish(),
@@ -156,14 +171,6 @@ export const taxonomySchema = z.looseObject({
   }),
 });
 export type UpstreamTaxonomy = z.infer<typeof taxonomySchema>;
-
-export const wardSchema = z.looseObject({
-  id,
-  slug: z.string().min(1),
-  province: id,
-  translations: z.looseObject({ vi: z.looseObject({ name: z.string() }) }),
-});
-export type UpstreamWard = z.infer<typeof wardSchema>;
 
 /** The paginated wrapper used by every list endpoint. */
 const pageMeta = {
