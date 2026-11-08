@@ -88,7 +88,7 @@ export interface CmapOptions {
 }
 
 export interface LanguageOption {
-  lang?: Language;
+  lang?: Language | undefined;
 }
 
 export interface SearchEventsParams extends EventFilters, Paging, LanguageOption {}
@@ -99,10 +99,10 @@ export interface EventsNearParams extends LanguageOption {
   lat: number;
   lng: number;
   /** Only events with a location within this many kilometres. */
-  radiusKm?: number;
-  limit?: number;
-  from?: string;
-  to?: string;
+  radiusKm?: number | undefined;
+  limit?: number | undefined;
+  from?: string | undefined;
+  to?: string | undefined;
 }
 
 export interface CmapStatus {
