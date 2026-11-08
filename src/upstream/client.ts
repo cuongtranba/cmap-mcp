@@ -10,9 +10,9 @@ export interface ClientOptions {
   concurrency?: number;
   /** Per-attempt timeout in milliseconds (default 20 000). */
   timeoutMs?: number;
-  /** Retries after the first attempt on 429, 5xx and network errors (default 3). */
+  /** Retries after the first attempt on 429, 5xx and network errors (default 4). */
   retries?: number;
-  /** First backoff delay in milliseconds; doubles on each retry (default 400). */
+  /** First backoff delay in milliseconds; doubles on each retry, plus up to 25% jitter (default 1000). */
   retryDelayMs?: number;
 }
 
@@ -22,6 +22,11 @@ const RETRYABLE_STATUS = new Set([429, 500, 502, 503, 504]);
 
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+/** Exponential backoff with up to 25% jitter so concurrent workers do not retry in lockstep. */
+function backoffMs(baseMs: number, attempt: number): number {
+  return baseMs * 2 ** attempt * (1 + Math.random() * 0.25);
 }
 
 function retryAfterMs(response: Response): number | undefined {
@@ -44,8 +49,8 @@ export class UpstreamClient {
     this.baseUrl = options.baseUrl.replace(/\/+$/, "");
     this.limit = pLimit(Math.max(1, options.concurrency ?? 4));
     this.timeoutMs = options.timeoutMs ?? 20_000;
-    this.retries = options.retries ?? 3;
-    this.retryDelayMs = options.retryDelayMs ?? 400;
+    this.retries = options.retries ?? 4;
+    this.retryDelayMs = options.retryDelayMs ?? 1000;
   }
 
   /** GET `path` and validate the JSON body with `schema`; errors name the endpoint. */
@@ -89,7 +94,7 @@ export class UpstreamClient {
       if (outcome.kind === "fatal") throw outcome.error;
       failure = outcome.error;
       if (attempt < this.retries) {
-        await sleep(outcome.waitMs ?? this.retryDelayMs * 2 ** attempt);
+        await sleep(outcome.waitMs ?? backoffMs(this.retryDelayMs, attempt));
       }
     }
     throw failure ?? new CmapError("UPSTREAM", `Request to ${label} failed`);

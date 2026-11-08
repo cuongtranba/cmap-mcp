@@ -79,7 +79,7 @@ export interface CmapOptions {
   concurrency?: number;
   timeoutMs?: number;
   retries?: number;
-  /** First retry backoff in milliseconds (default 400, doubling). */
+  /** First retry backoff in milliseconds (default 1000, doubling with jitter). */
   retryDelayMs?: number;
   /** How long a fetched event detail stays cached (default 10 minutes). */
   detailTtlMs?: number;
