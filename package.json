@@ -1,0 +1,62 @@
+{
+  "name": "cmap-mcp",
+  "version": "0.1.0",
+  "description": "CLI and MCP server for cmap.vn, the culture map of Vietnam",
+  "type": "module",
+  "license": "MIT",
+  "packageManager": "bun@1.4.2",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "cmap": "dist/cli.js",
+    "cmap-mcp": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "skills",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cuongtranba/cmap-mcp.git"
+  },
+  "homepage": "https://github.com/cuongtranba/cmap-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/cuongtranba/cmap-mcp/issues"
+  },
+  "keywords": [
+    "cmap",
+    "cmap.vn",
+    "vietnam",
+    "culture",
+    "events",
+    "festivals",
+    "mcp",
+    "model-context-protocol",
+    "cli"
+  ],
+  "scripts": {
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test --path-ignore-patterns \"test/live/**\"",
+    "test:live": "bun test test/live",
+    "build": "bun run scripts/build.ts",
+    "build:bin": "bun run scripts/build.ts --bin",
+    "fixtures:record": "bun run scripts/record-fixtures.ts",
+    "sync:once": "bun run scripts/sync-once.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.4.0",
+    "p-limit": "^7.3.3",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.6.6",
+    "@modelcontextprotocol/client": "2.4.0",
+    "@types/bun": "^1.4.4",
+    "typescript": "^7.0.2"
+  }
+}
