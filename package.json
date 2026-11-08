@@ -45,6 +45,7 @@
     "test:live": "bun test --path-ignore-patterns \"none/**\" test/live --timeout 180000",
     "build": "bun run scripts/build.ts",
     "build:bin": "bun run scripts/build.ts --bin",
+    "build:binaries": "bun run scripts/build-binaries.ts",
     "fixtures:record": "bun run scripts/record-fixtures.ts",
     "sync:once": "bun run scripts/sync-once.ts",
     "contract:record": "bun run scripts/record-contract.ts"

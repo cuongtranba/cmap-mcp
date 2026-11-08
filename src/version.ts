@@ -1,2 +1,4 @@
-/** Package version, kept in step with package.json by `bun run build` checks and the release workflow. */
-export const VERSION = "0.1.0";
+import pkg from "../package.json" with { type: "json" };
+
+/** Package version, read from package.json at build time so `bun pm version` is the only place to bump it. */
+export const VERSION: string = pkg.version;
