@@ -1,0 +1,85 @@
+[
+  {
+    "id": "84090a9f-b434-47de-b614-1766f3b5ff34",
+    "translations": {
+      "vi": {
+        "name": "Hà Nội",
+        "des": "Nơi những giá trị nghìn năm tuổi hòa cùng nhịp sống hiện đại. Từ những lễ hội truyền thống, không gian văn hóa phố cổ đến các chương trình nghệ thuật, triển lãm và sự kiện đương đại, Thủ đô luôn có những điểm hẹn văn hóa hấp dẫn chờ bạn khám phá.",
+        "content": "<div>Hà Nội sôi động với nhiều sự kiện văn hóa, lễ hội và hoạt động nghệ thuật diễn ra quanh năm. Thành phố thường xuyên tổ chức các chương trình quy mô lớn như Lễ hội Áo dài, Lễ hội Thiết kế sáng tạo, các hoạt động quảng bá di sản và chương trình nghệ thuật tại khu vực phố cổ, hồ Hoàn Kiếm.</div><div><br></div><div>Không gian di sản kết hợp nghệ thuật truyền thống và các hoạt động sáng tạo mang đến nhiều trải nghiệm đa dạng. Mỗi mùa, Hà Nội lại có những sự kiện riêng, tạo thêm sức hút cho hành trình khám phá Thủ đô.</div>",
+        "organ": null,
+        "tags": null
+      },
+      "en": {
+        "name": "Hanoi",
+        "des": "Where thousands of years of values match modern life. From traditional festivals, to the cultural spaces of the old city, to art shows, exhibitions and contemporary events, the capital has always had fascinating cultural destinations waiting for you to explore."
+      }
+    },
+    "thumbnail": "https://cmap.vn/media/app_category/Province/2026/09/10/4-65405306075629612529605-2L29yr.webp",
+    "image": "https://cmap.vn/media/app_category/Province/2026/09/10/4-65405306075629612529605-ORrLKL.jpg",
+    "code": "VN-HN",
+    "lat": null,
+    "lng": null,
+    "data": null,
+    "phone": null,
+    "email": null,
+    "link": null,
+    "country": "61c21057-ba9c-4c86-8387-48202e9b2db8",
+    "order": 1,
+    "slug": "ha-noi-5HQ5Xh"
+  },
+  {
+    "id": "57704333-faaf-4e4f-87c7-efbc2d340b46",
+    "translations": {
+      "vi": {
+        "name": "TP. Hồ Chí Minh",
+        "des": "Năng động, cởi mở và luôn tràn đầy sức sống. Những lễ hội, chương trình nghệ thuật, sự kiện đường phố, triển lãm và hoạt động văn hóa đa dạng tạo nên một thành phố không ngừng chuyển động, nơi mỗi lần ghé qua đều có điều mới mẻ để trải nghiệm.",
+        "content": "<div>Thành phố Hồ Chí Minh là điểm đến sôi động với nhiều sự kiện văn hóa, nghệ thuật, lễ hội và chương trình du lịch được tổ chức trong năm. Nổi bật có Lễ hội Áo dài, Lễ hội Sông nước, các chương trình nghệ thuật, sự kiện ẩm thực và hoạt động quảng bá du lịch thành phố.</div><div>Không gian đô thị hiện đại kết hợp cùng các di tích, bảo tàng và tuyến phố trung tâm tạo nên những trải nghiệm đa dạng. Các sự kiện diễn ra quanh năm góp phần mang đến diện mạo văn hóa năng động, thu hút người dân và du khách.</div>",
+        "organ": "Ủy ban nhân dân Thành phố Hồ Chí Minh",
+        "tags": null
+      },
+      "en": {
+        "name": "The T.P. Ho Chi Minh City",
+        "des": "Dynamic, open and always full of life. Festivals, art shows, street events, exhibitions, and diverse cultural activities make up a city that never stops moving, where every visit brings something new to experience."
+      }
+    },
+    "thumbnail": "https://cmap.vn/media/app_category/Province/2026/09/10/cropped_don-dep-2-77-03ovyz-9uTPEB.webp",
+    "image": "https://cmap.vn/media/app_category/Province/2026/09/10/don-dep-2-77-Jl5Bmm.jpg",
+    "code": "VN-HCM",
+    "lat": 10.8231,
+    "lng": 106.6297,
+    "data": null,
+    "phone": "028.3829.7611",
+    "email": "thongtintphcm@tphcm.gov.vn",
+    "link": "https://hochiminhcity.gov.vn/",
+    "country": "61c21057-ba9c-4c86-8387-48202e9b2db8",
+    "order": 2,
+    "slug": "tp-ho-chi-minh-RNwkCH"
+  },
+  {
+    "id": "c0bdf797-dfcc-41eb-9252-c821cbbc3616",
+    "translations": {
+      "vi": {
+        "name": "Tuyên Quang",
+        "des": "",
+        "content": "",
+        "organ": null,
+        "tags": null
+      },
+      "en": {
+        "name": "The Confession"
+      }
+    },
+    "thumbnail": "https://cmap.vn/media/app_category/Province/2026/09/21/tuyen-quang-5h2499.webp",
+    "image": "https://cmap.vn/media/app_category/Province/2026/09/21/tuyen-quang-5uCX06.jpg",
+    "code": "VN-TQ",
+    "lat": 21.8231,
+    "lng": 105.2142,
+    "data": null,
+    "phone": "0207.6251.929",
+    "email": "congttdt@tuyenquang.gov.vn",
+    "link": "https://www.tuyenquang.gov.vn/vi",
+    "country": "61c21057-ba9c-4c86-8387-48202e9b2db8",
+    "order": 33,
+    "slug": "tuyen-quang-8j3i25"
+  }
+]

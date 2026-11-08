@@ -1,0 +1,98 @@
+[
+  {
+    "id": "92468b04-a8a9-4124-aa41-e9fe14dca0da",
+    "translations": {
+      "vi": {
+        "name": "Cột cờ Lũng Cú",
+        "des": "Cột cờ Quốc gia Lũng Cú nằm trên địa bàn xã Lũng Cú, tỉnh Tuyên Quang",
+        "address": "xã Lũng Cú, tỉnh Tuyên Quang",
+        "audio": null,
+        "tags": null
+      }
+    },
+    "thumbnail": "https://cmap.vn/media/app_position/Position/2026/10/12/9-20220704140647-1028d39c-6119-41a4-9346-3d4c5d22b215-4Hg5a6.webp",
+    "image": "https://cmap.vn/media/app_position/Position/2026/10/12/9-20220704140647-1028d39c-6119-41a4-9346-3d4c5d22b215-Ensk89.webp",
+    "start_time": "2026-10-12",
+    "end_time": "2026-10-13",
+    "price": null,
+    "lat": 23.21,
+    "lng": 105.18,
+    "charge": false,
+    "highlight": false,
+    "highlight_province": false,
+    "type": [
+      "e8bfda36-2b5c-49ef-a523-b6dc4df6cd09"
+    ],
+    "service": [],
+    "category": [],
+    "province": "c0bdf797-dfcc-41eb-9252-c821cbbc3616",
+    "ward": "512b7c78-20d7-4b26-8fbe-f2d0edc33413",
+    "slug": "cot-co-lung-cu-ZNjvuY",
+    "like": 1,
+    "view": 4
+  },
+  {
+    "id": "e7f860b6-1643-4815-a13d-1e2f03d63cf9",
+    "translations": {
+      "vi": {
+        "name": "Bảo tàng Hà Nội",
+        "des": "Bảo tàng Hà Nội- Không gian trưng bày giới thiệu nhiều tư liệu, hiện vật phản ánh quá trình hình thành và phát triển của Hà Nội qua các thời kỳ, giúp công chúng hiểu hơn về chiều sâu văn hóa của vùng đất Thăng Long – Hà Nội",
+        "address": "Bảo tàng Hà Nội",
+        "audio": null,
+        "tags": null
+      }
+    },
+    "thumbnail": "https://cmap.vn/media/app_position/Position/2026/10/14/6-ulaagc-w4Z28e.webp",
+    "image": "https://cmap.vn/media/app_position/Position/2026/10/14/6-ulaagc-VuzGGq.webp",
+    "start_time": "2026-11-24",
+    "end_time": "2026-11-24",
+    "price": null,
+    "lat": 21.010133726718486,
+    "lng": 105.78633458650775,
+    "charge": false,
+    "highlight": false,
+    "highlight_province": false,
+    "type": [
+      "1606afd9-c878-4eff-83ea-e82760508c56"
+    ],
+    "service": [],
+    "category": [],
+    "province": "84090a9f-b434-47de-b614-1766f3b5ff34",
+    "ward": null,
+    "slug": "bao-tang-ha-noi-61hlvL",
+    "like": 1,
+    "view": 7
+  },
+  {
+    "id": "7dc39185-a0af-4de3-9dc8-d353a6d864a6",
+    "translations": {
+      "vi": {
+        "name": "Đảo Lý Sơn",
+        "des": "Đảo hoang sơ ngoài khơi với làn nước biển xanh ngắt, nổi tiếng là \"vương quốc tỏi\" và dấu tích núi lửa triệu năm",
+        "address": "Đặc khu Lý sơn, tỉnh Quảng Ngãi",
+        "audio": null,
+        "tags": null
+      }
+    },
+    "thumbnail": "https://cmap.vn/media/app_position/Position/2026/10/20/ly-son-0i7Rrz.webp",
+    "image": "https://cmap.vn/media/app_position/Position/2026/10/20/48c36bbaf1b0a40eb7fe6b4539decca6-1-VIITct.webp",
+    "start_time": "2026-05-31",
+    "end_time": "2026-10-30",
+    "price": null,
+    "lat": 15.383015,
+    "lng": 109.120599,
+    "charge": false,
+    "highlight": false,
+    "highlight_province": false,
+    "type": [
+      "e8bfda36-2b5c-49ef-a523-b6dc4df6cd09"
+    ],
+    "service": [],
+    "category": [],
+    "province": "3b56c08c-2f06-4323-bbc9-63cfd6d3c211",
+    "ward": null,
+    "slug": "dao-ly-son-Hqe8R5",
+    "like": 2,
+    "view": 4
+  }
+]
