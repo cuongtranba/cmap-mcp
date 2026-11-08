@@ -13,7 +13,7 @@
     "cmap-mcp": "dist/cli.js"
   },
   "files": [
-    "dist",
+    "dist/cli.js",
     "skills",
     "README.md",
     "LICENSE"
