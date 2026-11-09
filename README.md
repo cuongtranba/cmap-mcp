@@ -1,30 +1,30 @@
 # cmap-mcp
 
-**English** | [Tiếng Việt](README.vi.md)
+**Tiếng Việt** | [English](README.en.md)
 
-A command line tool (`cmap`) and an [MCP](https://modelcontextprotocol.io) server that give coding agents (Claude Code, Codex, Cursor and others) read access to the public data on [cmap.vn](https://cmap.vn), the culture map of Vietnam: cultural events, festivals, exhibitions, performances, sports and community activities, deals, places and provinces.
+Một công cụ dòng lệnh (`cmap`) và một máy chủ [MCP](https://modelcontextprotocol.io) giúp các coding agent (Claude Code, Codex, Cursor và các công cụ khác) đọc dữ liệu công khai trên [cmap.vn](https://cmap.vn), bản đồ văn hóa Việt Nam: sự kiện văn hóa, lễ hội, triển lãm, biểu diễn, thể thao và hoạt động cộng đồng, ưu đãi, địa điểm và tỉnh thành.
 
-Both entry points are thin adapters over one core library, so they return the same data.
+Cả hai lối vào đều là lớp vỏ mỏng bọc quanh cùng một thư viện lõi, nên chúng trả về cùng một dữ liệu.
 
-## Data and attribution
+## Dữ liệu và ghi nguồn
 
-The data belongs to cmap.vn and its operator. This project does not host or redistribute it: it fetches the data at runtime from the site's public JSON API, keeps a local cache, and every record carries a `url` that links back to its page on cmap.vn. Please cite cmap.vn when you use the results. Requests are polite (at most 4 at a time, a `cmap-mcp/<version>` User-Agent, backoff on 429 and 5xx, one full refresh at most every few minutes). Check the site's terms or ask its operator before any commercial or public redistribution.
+Dữ liệu thuộc về cmap.vn và đơn vị vận hành trang. Dự án này không lưu trữ hay phân phối lại dữ liệu: nó lấy dữ liệu lúc chạy từ JSON API công khai của trang, giữ một bộ đệm cục bộ, và mỗi bản ghi đều có trường `url` dẫn về trang tương ứng trên cmap.vn. Vui lòng ghi nguồn cmap.vn khi bạn dùng kết quả. Các yêu cầu được gửi một cách lịch sự (tối đa 4 yêu cầu cùng lúc, User-Agent `cmap-mcp/<version>`, chờ rồi thử lại khi gặp 429 và 5xx, mỗi lần làm mới toàn bộ cách nhau ít nhất vài phút). Hãy đọc điều khoản của trang hoặc hỏi đơn vị vận hành trước khi phân phối lại dữ liệu cho mục đích thương mại hay công khai.
 
-## Install
+## Cài đặt
 
-No installation is needed if you have Node 22+ or Bun:
+Không cần cài đặt nếu bạn có Node 22+ hoặc Bun:
 
 ```bash
 npx -y cmap-mcp events search "ha noi"
 bunx cmap-mcp events search "ha noi"
 ```
 
-Other options:
+Các cách khác:
 
-- **Global install:** `npm install -g cmap-mcp` or `bun add -g cmap-mcp`, then run `cmap`.
-- **Standalone binaries** (no Node or Bun needed) on [GitHub Releases](https://github.com/cuongtranba/cmap-mcp/releases): `cmap-linux-x64`, `cmap-linux-arm64`, `cmap-darwin-x64`, `cmap-darwin-arm64` and `cmap-windows-x64.exe`, with a `SHA256SUMS` file to verify them.
-- **Docker:** `docker run -p 8787:8787 ghcr.io/cuongtranba/cmap-mcp` starts the MCP server in HTTP mode. The image is published for `linux/amd64` and `linux/arm64` with the tags `latest`, `<major>.<minor>` and `<version>` (for example `0.1.0`).
-- **Agent skill:** `npx skills add cuongtranba/cmap-mcp` (or `bunx skills add cuongtranba/cmap-mcp`) teaches an agent when and how to call the CLI. See [skills/cmap/SKILL.md](skills/cmap/SKILL.md).
+- **Cài toàn cục:** `npm install -g cmap-mcp` hoặc `bun add -g cmap-mcp`, rồi chạy `cmap`.
+- **Tệp chạy độc lập** (không cần Node hay Bun) trên [GitHub Releases](https://github.com/cuongtranba/cmap-mcp/releases): `cmap-linux-x64`, `cmap-linux-arm64`, `cmap-darwin-x64`, `cmap-darwin-arm64` và `cmap-windows-x64.exe`, kèm tệp `SHA256SUMS` để kiểm tra.
+- **Docker:** `docker run -p 8787:8787 ghcr.io/cuongtranba/cmap-mcp` khởi động máy chủ MCP ở chế độ HTTP. Image được phát hành cho `linux/amd64` và `linux/arm64` với các tag `latest`, `<major>.<minor>` và `<version>` (ví dụ `0.1.0`).
+- **Agent skill:** `npx skills add cuongtranba/cmap-mcp` (hoặc `bunx skills add cuongtranba/cmap-mcp`) dạy agent khi nào và cách gọi CLI. Xem [skills/cmap/SKILL.md](skills/cmap/SKILL.md).
 
 ## CLI
 
@@ -40,7 +40,7 @@ cmap mcp [--http host:port]
 cmap --version | cmap --help | cmap <command> --help
 ```
 
-Global flags: `--refresh` (sync from cmap.vn first), `--max-age <minutes>` (re-sync when the cache is older; default 60), `--text` (readable output instead of JSON), `--lang vi|en`.
+Cờ dùng chung: `--refresh` (đồng bộ từ cmap.vn trước), `--max-age <minutes>` (đồng bộ lại khi bộ đệm cũ hơn số phút này; mặc định 60), `--text` (xuất dạng dễ đọc thay vì JSON), `--lang vi|en`.
 
 ```bash
 cmap events search "ngay van hoa" --from 2026-11-24 --to 2026-11-24
@@ -52,13 +52,13 @@ cmap offers search "bao tang"
 cmap taxonomies
 ```
 
-- Searches ignore Vietnamese accents (`ha noi` finds `Hà Nội`). Dates are `YYYY-MM-DD`. `--from`/`--to` keep events whose dates overlap the range.
-- Output is pretty-printed JSON on stdout. Errors exit with code 1 and print `{ "error": { "code", "message" } }` on stderr (codes `NOT_FOUND`, `VALIDATION`, `UPSTREAM`, `SYNC_REJECTED`, `NO_SNAPSHOT`); usage mistakes exit with code 2 and print help.
-- The first call syncs everything (about 2 to 6 seconds); later calls read the cache.
+- Tìm kiếm không phân biệt dấu tiếng Việt (`ha noi` tìm thấy `Hà Nội`). Ngày có dạng `YYYY-MM-DD`. `--from`/`--to` giữ lại các sự kiện có thời gian giao với khoảng ngày đã cho.
+- Kết quả là JSON định dạng đẹp trên stdout. Khi có lỗi, lệnh thoát với mã 1 và in `{ "error": { "code", "message" } }` ra stderr (các mã `NOT_FOUND`, `VALIDATION`, `UPSTREAM`, `SYNC_REJECTED`, `NO_SNAPSHOT`); khi dùng sai cú pháp, lệnh thoát với mã 2 và in hướng dẫn.
+- Lần gọi đầu tiên đồng bộ toàn bộ dữ liệu (khoảng 2 đến 6 giây); các lần sau đọc từ bộ đệm.
 
-## MCP server
+## Máy chủ MCP
 
-Ten read-only tools, one per library method: `search_events`, `get_event`, `events_near`, `list_provinces`, `get_province`, `list_taxonomies`, `search_offers`, `get_offer`, `list_places`, `get_sync_status`. Every tool has input and output schemas and returns `structuredContent`; library errors come back as tool results with `isError: true`.
+Mười công cụ chỉ đọc, mỗi công cụ ứng với một phương thức của thư viện: `search_events`, `get_event`, `events_near`, `list_provinces`, `get_province`, `list_taxonomies`, `search_offers`, `get_offer`, `list_places`, `get_sync_status`. Mỗi công cụ đều có schema đầu vào và đầu ra và trả về `structuredContent`; lỗi của thư viện được trả về dưới dạng kết quả công cụ với `isError: true`.
 
 Claude Code:
 
@@ -66,7 +66,7 @@ Claude Code:
 claude mcp add cmap -- npx -y cmap-mcp mcp
 ```
 
-Codex, in `~/.codex/config.toml`:
+Codex, trong `~/.codex/config.toml`:
 
 ```toml
 [mcp_servers.cmap]
@@ -74,7 +74,7 @@ command = "npx"
 args = ["-y", "cmap-mcp", "mcp"]
 ```
 
-Any MCP client that takes a JSON config:
+Bất kỳ MCP client nào nhận cấu hình JSON:
 
 ```json
 {
@@ -84,75 +84,75 @@ Any MCP client that takes a JSON config:
 }
 ```
 
-**HTTP mode** (Streamable HTTP, stateless): `cmap mcp --http 127.0.0.1:8787` serves `POST /mcp` and `GET /healthz`. Use `--http :8787` to bind all interfaces, for example in a container:
+**Chế độ HTTP** (Streamable HTTP, không trạng thái): `cmap mcp --http 127.0.0.1:8787` phục vụ `POST /mcp` và `GET /healthz`. Dùng `--http :8787` để lắng nghe trên mọi giao diện mạng, ví dụ trong container:
 
 ```bash
 docker run -p 8787:8787 -v cmap-cache:/data ghcr.io/cuongtranba/cmap-mcp
 ```
 
-The image runs as a non-root user, keeps the cache in `/data` (`CMAP_CACHE_DIR=/data`) and has a health check on `GET /healthz`.
+Image chạy bằng người dùng không phải root, giữ bộ đệm trong `/data` (`CMAP_CACHE_DIR=/data`) và có health check trên `GET /healthz`.
 
-In stdio mode the server writes only protocol messages to stdout; logs go to stderr. It loads the cache at start (syncing first when there is none) and re-syncs in the background every `CMAP_REFRESH_MIN` minutes, keeping the last good data if a sync fails.
+Ở chế độ stdio, máy chủ chỉ ghi thông điệp giao thức ra stdout; log được ghi ra stderr. Máy chủ nạp bộ đệm khi khởi động (đồng bộ trước nếu chưa có) và đồng bộ lại ở nền sau mỗi `CMAP_REFRESH_MIN` phút, giữ lại dữ liệu tốt gần nhất nếu một lần đồng bộ thất bại.
 
-## Configuration
+## Cấu hình
 
-| Variable | Default | Meaning |
+| Biến | Mặc định | Ý nghĩa |
 |---|---|---|
-| `CMAP_BASE_URL` | `https://cmap.vn` | Upstream origin |
-| `CMAP_CACHE_DIR` | `~/.cache/cmap-mcp` | Directory of `snapshot.json` |
-| `CMAP_MAX_AGE_MIN` | `60` | CLI re-syncs when the cache is older than this many minutes |
-| `CMAP_CONCURRENCY` | `4` | Simultaneous upstream requests |
-| `CMAP_REFRESH_MIN` | `10` | MCP server background refresh interval, in minutes |
+| `CMAP_BASE_URL` | `https://cmap.vn` | Địa chỉ gốc của nguồn dữ liệu |
+| `CMAP_CACHE_DIR` | `~/.cache/cmap-mcp` | Thư mục chứa `snapshot.json` |
+| `CMAP_MAX_AGE_MIN` | `60` | CLI đồng bộ lại khi bộ đệm cũ hơn số phút này |
+| `CMAP_CONCURRENCY` | `4` | Số yêu cầu đồng thời tới nguồn dữ liệu |
+| `CMAP_REFRESH_MIN` | `10` | Chu kỳ làm mới ở nền của máy chủ MCP, tính bằng phút |
 
-## How it works
+## Cách hoạt động
 
-A sync fetches the taxonomies, then **events once per province** (34 requests of up to 100 events), plus offers and places, validates every record with zod, removes duplicates and swaps the result in atomically (`snapshot.json`). Searches run on that snapshot, so they are instant, work without accents, and keep working when cmap.vn is slow. A failed or suspicious sync (more than 10% invalid records) keeps the previous snapshot. Only the long text of one event or offer is fetched on demand, by id.
+Một lần đồng bộ lấy các taxonomy, rồi lấy **sự kiện theo từng tỉnh, mỗi tỉnh một lần** (34 yêu cầu, mỗi yêu cầu tối đa 100 sự kiện), cùng với ưu đãi và địa điểm, kiểm tra từng bản ghi bằng zod, loại bỏ bản trùng và thay kết quả mới vào một cách nguyên tử (`snapshot.json`). Tìm kiếm chạy trên snapshot đó, nên trả kết quả tức thì, không cần gõ dấu, và vẫn hoạt động khi cmap.vn chậm. Một lần đồng bộ thất bại hoặc đáng ngờ (hơn 10% bản ghi không hợp lệ) sẽ giữ lại snapshot trước đó. Chỉ phần nội dung dài của một sự kiện hoặc ưu đãi được lấy khi cần, theo id.
 
-The site's own list paging loses about 20 events (its sort order is unstable) and its `resolve`, `map` and `facets` endpoints have the same bug, so none of them is used for correctness. Details and the investigation are in [docs/design.md](docs/design.md).
+Cơ chế phân trang danh sách của chính trang web làm mất khoảng 20 sự kiện (thứ tự sắp xếp không ổn định), và các endpoint `resolve`, `map` và `facets` cũng mắc cùng lỗi này, nên không endpoint nào trong số đó được dùng để đảm bảo tính đúng đắn. Chi tiết và quá trình điều tra có trong [docs/design.md](docs/design.md) (tiếng Anh).
 
-## Development
+## Phát triển
 
-Bun is the only toolchain.
+Bun là bộ công cụ duy nhất.
 
 ```bash
 bun install
 bun run lint          # Biome
 bun run typecheck     # tsc --noEmit
-bun test              # offline, against a fake upstream (test/fake-cmap.ts)
-bun run build         # dist/cli.js, runs on Node 22+
-bun run build:bin     # standalone binary for this machine, dist/cmap
-bun run build:binaries    # all five release binaries + SHA256SUMS in dist/bin
-bun run test:live     # checks the real cmap.vn: schemas, key shape, 34 provinces, <=100 events each
-bun run fixtures:record   # re-record test/fixtures from the live API
-bun run contract:record   # re-record test/contract/shape.json after an intended upstream change
+bun test              # chạy offline, với nguồn dữ liệu giả (test/fake-cmap.ts)
+bun run build         # dist/cli.js, chạy được trên Node 22+
+bun run build:bin     # tệp chạy độc lập cho máy hiện tại, dist/cmap
+bun run build:binaries    # cả năm tệp chạy phát hành + SHA256SUMS trong dist/bin
+bun run test:live     # kiểm tra cmap.vn thật: schema, cấu trúc khóa, 34 tỉnh, mỗi tỉnh <=100 sự kiện
+bun run fixtures:record   # ghi lại test/fixtures từ API thật
+bun run contract:record   # ghi lại test/contract/shape.json sau một thay đổi có chủ đích ở nguồn dữ liệu
 ```
 
-Read [AGENTS.md](AGENTS.md) before changing code.
+Đọc [AGENTS.md](AGENTS.md) (tiếng Anh) trước khi sửa mã.
 
-## CI and releasing
+## CI và phát hành
 
-GitHub Actions use Bun only (`oven-sh/setup-bun`, with the Bun version taken from `packageManager` in `package.json`).
+GitHub Actions chỉ dùng Bun (`oven-sh/setup-bun`, phiên bản Bun lấy từ trường `packageManager` trong `package.json`).
 
-- **`ci`** runs on every pull request and on pushes to `main`: `bun install --frozen-lockfile`, lint, typecheck, `bun test`, `bun run build`, then smoke tests (`node dist/cli.js --version` and `--help` on the runner's own Node, the linux-x64 binary's `--version`), `bun pm pack --dry-run` and a check that `bunx skills add ./ --list` lists `cmap`. It is the required status check for `main`.
-- **`live-e2e`** runs the live tests (`bun run test:live`) against the real cmap.vn every day at 07:00 Vietnam time (00:00 UTC), on demand, and on pull requests that touch `src/upstream`, `src/snapshot`, `test/live` or `test/contract`. When a scheduled or manual run on `main` fails, it opens an issue labelled `upstream-drift` ("cmap.vn upstream changed: live e2e failing") with the run link and the last 150 lines of output, or comments on the one that is already open. When a later run passes, it closes that issue. After an intended upstream change, run `bun run contract:record` and commit the new `test/contract/shape.json`.
-- **`release`** runs when a `v*` tag is pushed.
+- **`ci`** chạy trên mọi pull request và mọi lần push lên `main`: `bun install --frozen-lockfile`, lint, typecheck, `bun test`, `bun run build`, rồi các smoke test (`node dist/cli.js --version` và `--help` trên Node của runner, `--version` của tệp chạy linux-x64), `bun pm pack --dry-run` và một bước kiểm tra rằng `bunx skills add ./ --list` liệt kê `cmap`. Đây là status check bắt buộc cho `main`.
+- **`live-e2e`** chạy các live test (`bun run test:live`) với cmap.vn thật mỗi ngày lúc 07:00 giờ Việt Nam (00:00 UTC), khi được kích hoạt thủ công, và trên các pull request có chạm tới `src/upstream`, `src/snapshot`, `test/live` hoặc `test/contract`. Khi một lần chạy theo lịch hoặc thủ công trên `main` thất bại, workflow mở một issue gắn nhãn `upstream-drift` ("cmap.vn upstream changed: live e2e failing") kèm liên kết tới lần chạy và 150 dòng output cuối, hoặc bình luận vào issue đang mở. Khi một lần chạy sau đó thành công, workflow đóng issue đó. Sau một thay đổi có chủ đích ở nguồn dữ liệu, hãy chạy `bun run contract:record` và commit tệp `test/contract/shape.json` mới.
+- **`release`** chạy khi một tag `v*` được push.
 
-To release:
+Để phát hành:
 
 ```bash
-bun pm version patch   # or minor / major: bumps package.json, commits and tags vX.Y.Z
+bun pm version patch   # hoặc minor / major: tăng phiên bản trong package.json, commit và gắn tag vX.Y.Z
 git push --follow-tags
 ```
 
-The `release` workflow then:
+Sau đó workflow `release` sẽ:
 
-1. **verify** fails unless the tag equals the `package.json` version, and runs the full `ci` checks again.
-2. **npm** publishes with `bun publish --access public`, using the `NPM_TOKEN` repository secret. Set it once with `gh secret set NPM_TOKEN -R cuongtranba/cmap-mcp` (an npm automation token). `bun publish` cannot create provenance statements or use npm trusted publishing yet, so the package is published without provenance.
-3. **binaries** attaches `cmap-linux-x64`, `cmap-linux-arm64`, `cmap-darwin-x64`, `cmap-darwin-arm64`, `cmap-windows-x64.exe` and `SHA256SUMS` to a GitHub Release with generated notes.
-4. **docker** pushes `ghcr.io/cuongtranba/cmap-mcp` for `linux/amd64` and `linux/arm64` with the tags `<version>`, `<major>.<minor>` and `latest` (pre-release tags such as `v1.0.0-rc.1` do not move `latest`), using the built-in `GITHUB_TOKEN`.
+1. **verify** thất bại nếu tag không khớp với phiên bản trong `package.json`, và chạy lại toàn bộ các bước kiểm tra của `ci`.
+2. **npm** phát hành bằng `bun publish --access public`, dùng secret `NPM_TOKEN` của repository. Đặt secret này một lần bằng `gh secret set NPM_TOKEN -R cuongtranba/cmap-mcp` (một npm automation token). `bun publish` hiện chưa tạo được provenance statement hay dùng npm trusted publishing, nên gói được phát hành không kèm provenance.
+3. **binaries** đính kèm `cmap-linux-x64`, `cmap-linux-arm64`, `cmap-darwin-x64`, `cmap-darwin-arm64`, `cmap-windows-x64.exe` và `SHA256SUMS` vào một GitHub Release có ghi chú phát hành tự động.
+4. **docker** push `ghcr.io/cuongtranba/cmap-mcp` cho `linux/amd64` và `linux/arm64` với các tag `<version>`, `<major>.<minor>` và `latest` (các tag pre-release như `v1.0.0-rc.1` không cập nhật `latest`), dùng `GITHUB_TOKEN` có sẵn.
 
-Dependabot opens weekly update pull requests for GitHub Actions and Bun dependencies, grouping minor and patch updates.
+Dependabot mở các pull request cập nhật hằng tuần cho GitHub Actions và các phụ thuộc Bun, gộp chung các bản cập nhật minor và patch.
 
-## License
+## Giấy phép
 
-MIT, see [LICENSE](LICENSE). The data served by cmap.vn is not covered by this license.
+MIT, xem [LICENSE](LICENSE). Dữ liệu do cmap.vn cung cấp không thuộc phạm vi giấy phép này.
