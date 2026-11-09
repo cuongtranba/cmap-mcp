@@ -1,7 +1,7 @@
 {
   "name": "cmap-mcp",
   "version": "0.1.0",
-  "description": "CLI and MCP server for cmap.vn, the culture map of Vietnam",
+  "description": "CLI và máy chủ MCP cho cmap.vn, bản đồ văn hóa Việt Nam",
   "type": "module",
   "license": "MIT",
   "packageManager": "bun@1.4.2",
