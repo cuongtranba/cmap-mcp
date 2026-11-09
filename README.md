@@ -1,5 +1,7 @@
 # cmap-mcp
 
+**English** | [Tiếng Việt](README.vi.md)
+
 A command line tool (`cmap`) and an [MCP](https://modelcontextprotocol.io) server that give coding agents (Claude Code, Codex, Cursor and others) read access to the public data on [cmap.vn](https://cmap.vn), the culture map of Vietnam: cultural events, festivals, exhibitions, performances, sports and community activities, deals, places and provinces.
 
 Both entry points are thin adapters over one core library, so they return the same data.
