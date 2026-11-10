@@ -14,7 +14,7 @@ cmap.vn ("Bản đồ văn hóa", the culture map of Vietnam) is a Nuxt site ren
 | Map view of events | `/fe_api/event/map?get_all=1&language=vi&translation_view=search` | 525 | One call, flat camelCase records, 710 KB |
 | Facets (counts) | `/fe_api/event/facets?get_all=1` | — | `byProvince`, `byType`, `total` |
 | Nearby | `/fe_api/event/nearby?lat=&lng=&limit=&language=` | — | Computed by the server |
-| Offers (deals) | `/fe_api/offer/list?page_size=100` | 97 | `kind` is `event` (94) or `position` (3) |
+| Offers (deals) | `/fe_api/offer/list?page_size=100` | 103 (2026-11-10; 97 on 2026-11-08) | `kind` is `event` or `position`; two pages |
 | Positions (places) | `/fe_api/position/position?all=1&language=vi` | 3 | Lũng Cú flag tower, Hanoi Museum, Lý Sơn island |
 | Provinces | `/fe_api/province/province`, `/fe_api/province/{id}` | 34 | Code, lat/lng, translations |
 | Wards | `/fe_api/province/ward` | — | Turns `ward` ids into names |
@@ -81,7 +81,7 @@ flowchart LR
 ### Sync algorithm
 1. Fetch the taxonomies in parallel: provinces, wards, event types, event categories and position types.
 2. Fetch events once per province with `page_size=100&get_all=1&province={id}`, at most 4 at a time. If a province reports `total_pages > 1`, page through it and record a warning.
-3. Fetch offers and positions with one call each.
+3. Fetch offers and positions. `page_size` is capped at 100, so offers (103 on 2026-11-10) take two pages. Unlike the global event list, offer paging is stable: the pages do not overlap.
 4. Remove duplicate events by `id`. Compare the count with `facets.total` and the list's `total_objects`, and log the difference rather than failing.
 5. Validate with zod. An unknown extra field is allowed. A missing `id`, `translations` or `province` rejects that record and is logged. If more than 10% of records are rejected, the whole snapshot is rejected.
 6. Swap the snapshot in and write `snapshot.json`, so the next start loads in 0 seconds.

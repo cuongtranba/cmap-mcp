@@ -57,7 +57,7 @@ Runtime dependencies are only `@modelcontextprotocol/server@2.4.0` (which brings
 **Sync**, as in PLAN.md §3:
 1. Fetch the taxonomies (provinces, wards, event types, event categories, position types).
 2. Fetch events for each of the 34 provinces with `page_size=100`. If a province has more than one page, page through it and record a warning.
-3. Fetch offers and places with one call each.
+3. Fetch offers and places, paging through every page (offers passed 100 in November 2026).
 4. Remove duplicate events by `id`.
 5. Validate with zod. If more than 10% of records fail, reject the whole sync and keep the previous snapshot.
 

@@ -122,7 +122,11 @@ describe("cmap.vn upstream contract", () => {
     ).toBeGreaterThanOrEqual(MIN_EVENTS);
 
     const tooBig = provinces.filter((p) => p.eventCount > PAGE_SIZE);
-    const paged = report.warnings.filter((w) => /spans \d+ pages/.test(w));
+    // Only per-province event paging breaks the assumption. Offers (103 on 2026-11-10) and
+    // other lists page stably and the sync pages through them.
+    const paged = report.warnings.filter((w) =>
+      /^\/fe_api\/event\/event .* spans \d+ pages/.test(w),
+    );
     expect(
       [...tooBig.map((p) => `${p.name} has ${p.eventCount} events`), ...paged],
       `The per-province paging assumption (at most ${PAGE_SIZE} events per province, one request each) no longer holds. ` +
