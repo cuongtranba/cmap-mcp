@@ -177,6 +177,10 @@ function coordinate(value: number | null | undefined, limit: number): number | n
 
 // --- lookups --------------------------------------------------------------------------
 
+/**
+ * Events and offers carry English in `translations.en` (older records) or, since cmap.vn dropped
+ * `en` in November 2026, in `translations.vi.name_en` / `content_en`; callers pass whichever is set.
+ */
 function pick(lang: Language, vi: string | null | undefined, en: string | null | undefined) {
   const preferred = lang === "en" ? en : vi;
   return preferred ? preferred : (vi ?? "");
@@ -236,7 +240,7 @@ export function formatEvent(
   const summary: EventSummary = {
     id: event.id,
     slug: event.slug,
-    name: pick(lang, vi.name, en?.name),
+    name: pick(lang, vi.name, en?.name || vi.name_en),
     description: truncate(htmlToText(pick(lang, vi.des, en?.des))),
     startDate: event.start_time ?? null,
     endDate: event.end_time ?? null,
@@ -290,7 +294,7 @@ export function formatEventDetail(
   const images = [record.image, ...imageUrls(record.image_list)];
   return {
     ...formatEvent(snapshot, record, lang),
-    content: htmlToText(pick(lang, vi.content, en?.content)),
+    content: htmlToText(pick(lang, vi.content, en?.content || vi.content_en)),
     ticket: plainOrNull(vi.ticket),
     organizationLevel: plainOrNull(vi.organization_level),
     contact: plainOrNull(vi.contact),
@@ -326,7 +330,7 @@ export function formatOffer(
     id: offer.id,
     slug: offer.slug,
     kind: offer.kind,
-    name: pick(lang, vi.name, en?.name),
+    name: pick(lang, vi.name, en?.name || vi.name_en),
     description: truncate(htmlToText(pick(lang, vi.des, en?.des))),
     startDate: offer.start_time ?? null,
     endDate: offer.end_time ?? null,
@@ -346,7 +350,7 @@ export function formatOfferDetail(
   const en = offer.translations.en;
   return {
     ...formatOffer(snapshot, offer, lang),
-    content: htmlToText(pick(lang, vi.content, en?.content)),
+    content: htmlToText(pick(lang, vi.content, en?.content || vi.content_en)),
     ticket: plainOrNull(vi.ticket),
   };
 }

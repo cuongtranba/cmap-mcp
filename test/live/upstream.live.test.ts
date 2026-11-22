@@ -27,7 +27,6 @@ const ROOT = join(import.meta.dir, "..", "..");
 const MAX_REJECTED = 5;
 const EXPECTED_PROVINCES = 34;
 const MIN_EVENTS = 300;
-const PAGE_SIZE = 100;
 const DETAIL_SAMPLE = 3;
 const RESOLVE_SAMPLE = 20;
 
@@ -107,7 +106,7 @@ describe("cmap.vn upstream contract", () => {
     ).toEqual([]);
   });
 
-  test("34 provinces, at least 300 events and at most 100 events per province", async () => {
+  test("34 provinces, at least 300 events, and per-province paging returns every event exactly once", async () => {
     const report = syncReport();
     const provinces = await cmap.listProvinces();
 
@@ -121,17 +120,18 @@ describe("cmap.vn upstream contract", () => {
       `Only ${report.counts.events} events synced, expected at least ${MIN_EVENTS}.`,
     ).toBeGreaterThanOrEqual(MIN_EVENTS);
 
-    const tooBig = provinces.filter((p) => p.eventCount > PAGE_SIZE);
-    // Only per-province event paging breaks the assumption. Offers (103 on 2026-11-10) and
-    // other lists page stably and the sync pages through them.
-    const paged = report.warnings.filter((w) =>
-      /^\/fe_api\/event\/event .* spans \d+ pages/.test(w),
+    // A province with more than 100 events spans several pages (TP. Hồ Chí Minh since
+    // 2026-11-22) and the sync pages through it. That is only safe while paging inside one
+    // province is stable: no page returns an event twice and no event is left unreachable,
+    // unlike the global list (docs/design.md section 1).
+    const shortfalls = report.warnings.filter((w) =>
+      /^\/fe_api\/event\/event .* returned \d+ of \d+ records/.test(w),
     );
     expect(
-      [...tooBig.map((p) => `${p.name} has ${p.eventCount} events`), ...paged],
-      `The per-province paging assumption (at most ${PAGE_SIZE} events per province, one request each) no longer holds. ` +
+      { duplicates: report.duplicates, shortfalls },
+      "Paging the per-province event list lost or repeated events, so it has become as unstable as the global list. " +
         "This is the key upstream-change signal: review docs/design.md section 1 and the sync in src/snapshot/sync.ts.",
-    ).toEqual([]);
+    ).toEqual({ duplicates: 0, shortfalls: [] });
   });
 
   test("getEvent by id returns non-empty content for three sampled events", async () => {
