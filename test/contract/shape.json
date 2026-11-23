@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-08T14:53:23.329Z",
+  "recordedAt": "2026-11-22T05:58:11.414Z",
   "endpoints": {
     "province": {
       "keys": {
@@ -25,10 +25,7 @@
         "organ": ["null", "string"],
         "tags": ["null", "string"]
       },
-      "en": {
-        "des": ["string"],
-        "name": ["string"]
-      }
+      "en": {}
     },
     "eventType": {
       "keys": {
@@ -109,10 +106,10 @@
         "highlight_community": ["boolean"],
         "id": ["string"],
         "image": ["string"],
-        "lat": ["number"],
+        "lat": ["null", "number"],
         "like": ["number"],
         "link": ["null", "string"],
-        "lng": ["number"],
+        "lng": ["null", "number"],
         "more_location_list": ["array"],
         "order": ["null", "number"],
         "province": ["string"],
@@ -140,11 +137,7 @@
         "tags": ["null"],
         "transport": ["string"]
       },
-      "en": {
-        "address": ["string"],
-        "des": ["string"],
-        "name": ["string"]
-      }
+      "en": {}
     },
     "offer": {
       "keys": {
@@ -189,7 +182,7 @@
         "organization_level": ["string"],
         "organizer": ["null", "string"],
         "rule": ["string"],
-        "tags": ["null"],
+        "tags": ["null", "string"],
         "ticket": ["string"],
         "transport": ["string"]
       },
@@ -223,7 +216,7 @@
         "audio": ["null"],
         "des": ["string"],
         "name": ["string"],
-        "tags": ["null"]
+        "tags": ["null", "string"]
       },
       "en": {}
     },
@@ -244,7 +237,7 @@
         "link": ["null", "string"],
         "lng": ["number"],
         "more_location_list": ["array"],
-        "order": ["number"],
+        "order": ["null", "number"],
         "province": ["object"],
         "service": ["array"],
         "slug": ["string"],
@@ -259,7 +252,7 @@
         "address": ["string"],
         "audience": ["null", "string"],
         "audio": ["null"],
-        "basis": ["null"],
+        "basis": ["null", "string"],
         "contact": ["null", "string"],
         "content": ["string"],
         "content_en": ["string"],
@@ -267,17 +260,12 @@
         "name": ["string"],
         "name_en": ["null"],
         "organization_level": ["string"],
-        "organizer": ["string"],
+        "organizer": ["null", "string"],
         "tags": ["null"],
         "ticket": ["string"],
         "transport": ["string"]
       },
-      "en": {
-        "address": ["string"],
-        "content": ["string"],
-        "des": ["string"],
-        "name": ["string"]
-      }
+      "en": {}
     }
   }
 }
