@@ -74,12 +74,17 @@ export const REQUIRED: Record<EndpointName, Required> = {
   province: {
     keys: ["id", "slug", "code", "lat", "lng", "order", "translations"],
     vi: ["name", "des"],
-    en: ["name"],
+    en: [], // cmap.vn dropped the province en translation in November 2026
   },
   eventType: TAXONOMY,
   eventCategory: TAXONOMY,
   positionType: TAXONOMY,
-  event: { keys: EVENT_KEYS, vi: ["name", "des", "address", "organizer"], en: ["name", "des"] },
+  event: {
+    keys: EVENT_KEYS,
+    // English moved from translations.en to vi.name_en / vi.content_en in November 2026.
+    vi: ["name", "name_en", "des", "address", "organizer"],
+    en: [],
+  },
   offer: {
     keys: [...EVENT_KEYS, "kind"],
     vi: ["name", "des", "address", "content"],

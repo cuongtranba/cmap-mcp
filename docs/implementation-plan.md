@@ -3,7 +3,7 @@
 ## Context
 
 cmap.vn, the culture map of Vietnam, has no official API. Its public `/fe_api/*` JSON API has two traps found during the investigation (see `PLAN.md` §1):
-- **Paging loses events:** paging through the event list returns about 529 of 549 events because the sort order isn't stable. Querying per province, with at most 100 events per province, returns all of them.
+- **Paging loses events:** paging through the event list returns about 529 of 549 events because the sort order isn't stable. Querying per province returns all of them; a province with more than 100 events is paged, which is stable within one province.
 - **The site's own lookups are wrong:** the map, the facet counts and slug resolution are built by the site with the same paging bug. At any moment 23–27 events are missing from them and their direct links return 404.
 
 You want Claude Code, Codex and any other coding agent to use this data. Agents with a shell will call a CLI. Agents that use MCP or tool calls will use an MCP server built on the same core.
@@ -100,7 +100,7 @@ The offline tests run with `bun test` against the deterministic `fake-cmap` serv
 The **live e2e test** (`bun run test:live`, against the real cmap.vn) is what tells us the upstream site has changed:
 - every endpoint parses with the zod schemas;
 - the key shape matches `test/contract/shape.json` (a missing or retyped key fails the test; a new key only produces a warning);
-- 34 provinces are returned, at least 300 events in total, and no province has more than 100 events (the per-province assumption still holds);
+- 34 provinces are returned, at least 300 events in total, and paging the per-province event lists returns every event exactly once (no duplicates, no shortfall);
 - a sample of `get` by ID returns content;
 - the real CLI and the MCP server answer searches.
 

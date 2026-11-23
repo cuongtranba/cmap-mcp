@@ -107,6 +107,15 @@ describe("cmap library", () => {
     expect(fake.requests.some((r) => r.startsWith("/fe_api/event/resolve/"))).toBe(false);
   });
 
+  test("English results use the event's vi.name_en when upstream sends no en translation (regression: cmap.vn dropped translations.en)", async () => {
+    const cmap = await newCmap();
+    await cmap.sync();
+
+    const { items } = await cmap.searchEvents({ query: "nhay lua", lang: "en" });
+
+    expect(items.map((e) => e.name)).toEqual(["Fire Dancing Festival of the Pa Then People"]);
+  });
+
   test("eventsNear orders by distance, respects radiusKm and ignores corrupt coordinates", async () => {
     const cmap = await newCmap();
     await cmap.sync();
