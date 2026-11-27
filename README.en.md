@@ -60,6 +60,8 @@ cmap taxonomies
 
 Ten read-only tools, one per library method: `search_events`, `get_event`, `events_near`, `list_provinces`, `get_province`, `list_taxonomies`, `search_offers`, `get_offer`, `list_places`, `get_sync_status`. Every tool has input and output schemas and returns `structuredContent`; library errors come back as tool results with `isError: true`.
 
+The server also serves an agent skill over the MCP [Skills extension](https://modelcontextprotocol.io/extensions/skills/overview) (`io.modelcontextprotocol/skills`): `skill://cmap-mcp/SKILL.md` tells the agent which tool answers which question, how to chain the tools and how to recover from errors. Clients that support the extension discover it with `skills/list`; any other client can read it as a resource (it is in `resources/list`, and the server instructions point to it). Nothing to install: it ships inside the server. Its source is [src/mcp/skills/cmap-mcp/SKILL.md](src/mcp/skills/cmap-mcp/SKILL.md).
+
 Claude Code:
 
 ```bash

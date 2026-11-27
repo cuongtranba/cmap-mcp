@@ -20,6 +20,11 @@ cmap-mcp is a CLI (`cmap`) and an MCP server (`cmap mcp`) over one core library 
 - At most 4 concurrent requests, a `cmap-mcp/<version>` User-Agent, retries with backoff on 429/5xx.
 - Every upstream response is parsed with the zod schemas in `src/upstream/schemas.ts`, the single definition of the contract.
 
+## MCP skill
+
+- The MCP server serves `src/mcp/skills/cmap-mcp/SKILL.md` over the MCP Skills extension (`skill://cmap-mcp/SKILL.md`). When you add, rename or change a tool, update that skill in the same change; `test/mcp.test.ts` fails if a listed tool is missing from it.
+- `skills/cmap/SKILL.md` is the separate CLI skill for `skills add`. Keep the two apart.
+
 ## Typing
 
 - TypeScript strict mode. No `any`, no `as unknown as`, no non-null assertions to silence errors. Use `unknown` plus zod parsing at boundaries, discriminated unions, and explicit return types on exported functions.

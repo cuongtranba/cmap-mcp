@@ -60,6 +60,8 @@ cmap taxonomies
 
 Mười công cụ chỉ đọc, mỗi công cụ ứng với một phương thức của thư viện: `search_events`, `get_event`, `events_near`, `list_provinces`, `get_province`, `list_taxonomies`, `search_offers`, `get_offer`, `list_places`, `get_sync_status`. Mỗi công cụ đều có schema đầu vào và đầu ra và trả về `structuredContent`; lỗi của thư viện được trả về dưới dạng kết quả công cụ với `isError: true`.
 
+Máy chủ còn phục vụ một agent skill qua [Skills extension](https://modelcontextprotocol.io/extensions/skills/overview) của MCP (`io.modelcontextprotocol/skills`): `skill://cmap-mcp/SKILL.md` chỉ cho agent công cụ nào trả lời câu hỏi nào, cách nối các công cụ với nhau và cách xử lý lỗi. Client hỗ trợ extension này tìm thấy skill qua `skills/list`; các client khác vẫn đọc được nó như một resource (skill có trong `resources/list`, và phần instructions của máy chủ trỏ tới nó). Không cần cài thêm gì: skill nằm sẵn trong máy chủ. Mã nguồn ở [src/mcp/skills/cmap-mcp/SKILL.md](src/mcp/skills/cmap-mcp/SKILL.md).
+
 Claude Code:
 
 ```bash
