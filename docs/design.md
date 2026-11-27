@@ -114,6 +114,12 @@ Every tool takes `language: "vi" | "en"` (default `vi`) and returns `structuredC
 
 Optional MCP resources: `cmap://provinces` and `cmap://taxonomies` (static JSON), so clients can load them as context.
 
+### MCP skill
+
+The server also implements the MCP [Skills extension](https://modelcontextprotocol.io/extensions/skills/overview) (`io.modelcontextprotocol/skills`, SEP-2640). It serves one skill, `skill://cmap-mcp/SKILL.md` (source `src/mcp/skills/cmap-mcp/SKILL.md`), that tells an agent which tool answers which question, how to chain the tools, how to recover from each error code and how to cite the results. The SDK's `SkillCatalog` answers `skills/list`, `skills/get`, `resources/read` and `resources/directory/read`, lists the skill in `resources/list` and declares the extension in the server capabilities, with a one-hour public cache hint. The server instructions point to the same URI, so clients without the extension can still read the skill as a resource.
+
+The skill is imported `with { type: "text" }`, so the bundler inlines it into `dist/cli.js` and the compiled binaries; nothing is read from disk at runtime. It is separate from `skills/cmap/SKILL.md`, which teaches the CLI and is installed with `skills add`. A test checks that the served skill passes digest verification and names every tool the server lists.
+
 "Community activities" are events whose `type` is *Sinh hoạt cộng đồng*, so `search_events` covers them through the `type` filter rather than a separate tool.
 
 ## 5. Technology
@@ -129,7 +135,7 @@ Layout:
 src/
   index.ts             # library API: createCmap() and types
   cli.ts               # `cmap` entry: parseArgs, JSON/text output   (cli/help.ts, cli/text.ts)
-  mcp/server.ts        # McpServer, ten tools, stdio + HTTP          (mcp/schemas.ts)
+  mcp/server.ts        # McpServer, ten tools, one skill, stdio + HTTP (mcp/schemas.ts, mcp/skills/)
   config.ts errors.ts version.ts
   upstream/            # schemas.ts (the contract), client.ts (retry, concurrency), detail-cache.ts
   snapshot/            # sync.ts (per-province crawl), store.ts (memory + disk), snapshot.ts

@@ -3,6 +3,7 @@ import { mkdtemp, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { Client, StreamableHTTPClientTransport } from "@modelcontextprotocol/client";
+import { SkillsClient } from "@modelcontextprotocol/client/ext/skills";
 import { StdioClientTransport } from "@modelcontextprotocol/client/stdio";
 import { z } from "zod";
 import { type FakeCmap, startFakeCmap } from "./fake-cmap.ts";
@@ -96,6 +97,25 @@ describe("cmap MCP server over stdio", () => {
 
       expect(result.isError).toBe(true);
       expect(JSON.stringify(result.content)).toContain("NOT_FOUND");
+    } finally {
+      await client.close();
+    }
+  });
+
+  test("serves a skill over the Skills extension that verifies and covers every tool it lists", async () => {
+    const client = await connectStdio();
+    try {
+      const skills = new SkillsClient(client);
+      const { skills: entries } = await skills.list();
+      const [entry] = entries;
+      if (entry === undefined) throw new Error("the server lists no skills");
+
+      const file = await skills.read(entry);
+      const { tools } = await client.listTools();
+
+      expect(entries.map((s) => s.uri)).toEqual(["skill://cmap-mcp/SKILL.md"]);
+      expect(file.verified).toBe(true);
+      for (const tool of tools) expect(file.body).toContain(`\`${tool.name}\``);
     } finally {
       await client.close();
     }

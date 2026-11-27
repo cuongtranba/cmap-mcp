@@ -55,7 +55,7 @@ Filters for `events search`: `--province`, `--type`, `--category`, `--from`, `--
 
 ## Use as an MCP server instead
 
-The same data is available as ten MCP tools (`search_events`, `get_event`, `events_near`, `list_provinces`, `get_province`, `list_taxonomies`, `search_offers`, `get_offer`, `list_places`, `get_sync_status`).
+The same data is available as ten MCP tools (`search_events`, `get_event`, `events_near`, `list_provinces`, `get_province`, `list_taxonomies`, `search_offers`, `get_offer`, `list_places`, `get_sync_status`). The server also serves its own usage guide for those tools as the MCP skill `skill://cmap-mcp/SKILL.md` (MCP Skills extension), so an agent connected over MCP does not need this CLI skill.
 
 Claude Code:
 

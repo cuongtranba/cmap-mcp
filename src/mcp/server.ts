@@ -1,10 +1,16 @@
 /**
- * MCP adapter over the cmap library: ten read-only tools, served over stdio or stateless
- * Streamable HTTP. Tools hold no logic of their own; each one calls one library method.
+ * MCP adapter over the cmap library: ten read-only tools and one skill (the MCP Skills extension,
+ * SEP-2640) that teaches agents how to use them, served over stdio or stateless Streamable HTTP.
+ * Tools hold no logic of their own; each one calls one library method.
  */
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
 import type { AddressInfo } from "node:net";
 import { McpServer, WebStandardStreamableHTTPServerTransport } from "@modelcontextprotocol/server";
+import {
+  memorySkillFiles,
+  type SkillCatalog,
+  SkillsExtension,
+} from "@modelcontextprotocol/server/ext/skills";
 import { StdioServerTransport } from "@modelcontextprotocol/server/stdio";
 import type { z } from "zod";
 import { type Cmap, createCmap, isCmapError, loadConfig, VERSION } from "../index.ts";
@@ -30,11 +36,16 @@ import {
   statusOutput,
   taxonomiesOutput,
 } from "./schemas.ts";
+// Inlined by the bundler, so the npm bundle and the compiled binaries carry the skill.
+import cmapSkill from "./skills/cmap-mcp/SKILL.md" with { type: "text" };
 
 const READ_ONLY = { readOnlyHint: true, openWorldHint: true } as const;
 const MAX_BODY_BYTES = 4 * 1024 * 1024;
 
-const INSTRUCTIONS = `Data about cultural events, festivals, exhibitions, performances, sports and community activities, offers (deals), places and provinces in Vietnam, from cmap.vn (the culture map of Vietnam). The data is a cached copy refreshed every few minutes. Search with search_events (diacritics are optional), open one record with get_event, and always cite the "url" field of the records you use as the source (cmap.vn).`;
+const SKILL_URI = "skill://cmap-mcp/SKILL.md";
+const INSTRUCTIONS = `Data about cultural events, festivals, exhibitions, performances, sports and community activities, offers (deals), places and provinces in Vietnam, from cmap.vn (the culture map of Vietnam). The data is a cached copy refreshed every few minutes. Search with search_events (diacritics are optional), open one record with get_event, and always cite the "url" field of the records you use as the source (cmap.vn). Read the resource ${SKILL_URI} for which tool answers which question, how to chain them and how to recover from errors.`;
+/** The skill changes only with a release, so any client or shared cache may keep it for an hour. */
+const SKILL_CACHE = { ttlMs: 60 * 60_000, cacheScope: "public" } as const;
 
 interface ToolResult {
   [key: string]: unknown;
@@ -74,12 +85,24 @@ async function toolResult<S extends z.ZodType<object, object>>(
   }
 }
 
-/** Build a server whose tools read from `cmap`. Cheap: HTTP mode makes one per request. */
-export function createMcpServer(cmap: Cmap): McpServer {
+/** The skills this server serves. Built once; one catalog serves every server instance. */
+function loadSkillCatalog(): Promise<SkillCatalog> {
+  return SkillsExtension.load(memorySkillFiles({ "cmap-mcp/SKILL.md": cmapSkill }), {
+    cacheHint: SKILL_CACHE,
+    strict: true,
+  });
+}
+
+/**
+ * Build a server whose tools read from `cmap` and that serves `skills`. Cheap: HTTP mode makes one
+ * per request.
+ */
+export function createMcpServer(cmap: Cmap, skills: SkillsExtension): McpServer {
   const server = new McpServer(
     { name: "cmap-mcp", version: VERSION },
     { instructions: INSTRUCTIONS },
   );
+  skills.attach(server);
 
   server.registerTool(
     "search_events",
@@ -269,11 +292,12 @@ export async function startMcp(listen?: ListenAddress): Promise<void> {
   // A closed stderr (client gone) must not take the server down.
   process.stderr.on("error", () => undefined);
   const { cmap, refreshMin } = createServerCmap();
+  const skills = await loadSkillCatalog();
   if (listen === undefined) {
-    await createMcpServer(cmap).connect(new StdioServerTransport());
+    await createMcpServer(cmap, skills).connect(new StdioServerTransport());
     log(`stdio server ready (cmap-mcp ${VERSION})`);
   } else {
-    await serveHttp(cmap, listen);
+    await serveHttp(cmap, skills, listen);
   }
   await keepFresh(cmap, refreshMin);
 }
@@ -330,6 +354,7 @@ function sendJson(res: ServerResponse, status: number, body: unknown): void {
 /** Stateless Streamable HTTP: a fresh server and transport answer each POST /mcp. */
 async function handleMcp(
   cmap: Cmap,
+  skills: SkillsExtension,
   req: IncomingMessage,
   res: ServerResponse,
   url: URL,
@@ -339,7 +364,7 @@ async function handleMcp(
     sendJson(res, 413, { error: { code: "PAYLOAD_TOO_LARGE", message: "Request body too large" } });
     return;
   }
-  const server = createMcpServer(cmap);
+  const server = createMcpServer(cmap, skills);
   const transport = new WebStandardStreamableHTTPServerTransport({
     sessionIdGenerator: undefined,
     enableJsonResponse: true,
@@ -352,12 +377,16 @@ async function handleMcp(
   await sendWebResponse(res, await transport.handleRequest(toWebRequest(req, url, body)));
 }
 
-async function serveHttp(cmap: Cmap, listen: ListenAddress): Promise<void> {
+async function serveHttp(
+  cmap: Cmap,
+  skills: SkillsExtension,
+  listen: ListenAddress,
+): Promise<void> {
   const httpServer = createServer((req, res) => {
     const url = new URL(req.url ?? "/", `http://${req.headers.host ?? "localhost"}`);
     const route =
       url.pathname === "/mcp"
-        ? handleMcp(cmap, req, res, url)
+        ? handleMcp(cmap, skills, req, res, url)
         : url.pathname === "/healthz" && req.method === "GET"
           ? cmap
               .status()
